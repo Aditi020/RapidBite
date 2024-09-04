@@ -41,7 +41,7 @@ To start the development server and see your project in action, run:
 npm run dev
 ```
 
-Open your browser and go to the provided local address (e.g., `http://localhost:3000`) to view your project.
+Open your browser and go to the provided local address (e.g., `http://localhost:5173`) to view your project.
 
 ## Collaborating on the Project
 
@@ -52,7 +52,7 @@ If you're collaborating on this project, follow these additional steps:
 First, clone the repository to your local machine:
 
 ```bash
-git clone https://github.com/username/repository.git
+git clone https://github.com/Aditi020/RapidBite.git
 ```
 
 Replace the URL with the actual URL of the repository.

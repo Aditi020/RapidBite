@@ -1,115 +1,135 @@
 
 # React + Vite
 
-This template provides a minimal setup to get React working in Vite with Hot Module Replacement (HMR) and some ESLint rules.
-
 ## Getting Started
 
 Follow these steps to create and set up your Vite React project.
-
-### 1. Create a New Vite Project
-
-Open your terminal and run the following command to create a new Vite project:
-
-```bash
-npm create vite@latest
-```
-
-Follow the prompts to set up your project. You can choose the default settings or customize them according to your needs.
-
-### 2. Navigate to the Project Directory
-
-Once the project is created, navigate to the project directory:
-
-```bash
-cd your-project-name
-```
-
-### 3. Install Dependencies
-
-Install the necessary dependencies by running:
-
-```bash
-npm install
-```
-
-### 4. Start the Development Server
-
-To start the development server and see your project in action, run:
-
-```bash
-npm run dev
-```
-
-Open your browser and go to the provided local address (e.g., `http://localhost:5173`) to view your project.
 
 ## Collaborating on the Project
 
 If you're collaborating on this project, follow these additional steps:
 
-### 1. Clone the Repository
 
-First, clone the repository to your local machine:
+## Setup Instructions
+
+### 1. Clone the repository
 
 ```bash
 git clone https://github.com/Aditi020/RapidBite.git
 ```
 
-Replace the URL with the actual URL of the repository.
-
-### 2. Navigate to the Project Directory
-
-Move into the project directory:
+### 2. Install dependencies
 
 ```bash
-cd repository-name
-```
+cd mern-todo-app
 
-### 3. Install Dependencies
+# Split the terminal:
 
-After cloning the project, install the necessary dependencies:
+# Install backend dependencies
+cd Backend
+npm install
 
-```bash
+# Install frontend dependencies
+cd Frontend
 npm install
 ```
 
-### 4. Create a New Branch
+### 3. MongoDB Setup
 
-To work on a new feature or fix a bug, create a new branch:
+- Open MongoDB Compass
+- Create a new database named `RapidBtie`
+- Inside the `RapidBite` database, create a collection named `Food/User/Admin`
 
-```bash
-git checkout -b feature/your-feature-name
-```
-
-### 5. Make Changes and Commit
-
-Make your changes, and when you're ready to commit, follow these steps:
+### 4. Server setup for database connection
 
 ```bash
-git add .
-git commit -m "Describe your changes"
+PORT=3000  # Port number for the server (you can change it if needed)
+MONGO_URI=mongodb+srv://aditikumar2224:AK0MongoDB@cluster0.zie5hxe.mongodb.net/Todo-application  # MongoDB connection URI
 ```
+#### change your url here above
 
-### 6. Push Your Branch
 
-Push your branch to the remote repository:
+
+### 5. Running the App
 
 ```bash
-git push origin feature/your-feature-name
+# Start the server (from the 'Backend' directory)
+npm start
+
+# Start the client (from the 'Frontend' directory)
+npm start
 ```
 
-### 7. Create a Pull Request
+The server will run on `http://localhost:3000/Rapidbite` and the client on `http://localhost:5173/`.
 
-Go to the repository on GitHub (or other hosting service) and create a pull request from your branch to the main branch. Be sure to describe the changes you've made.
+## Usage
 
-### 8. Review and Merge
+- Open your web browser and go to `http://localhost:3000/todos`.
+- You can add, update tasks, mark them as completed, or delete them.
 
-Once your pull request is reviewed and approved, it can be merged into the main branch.
+## Contributing
 
-## Additional Resources
+Feel free to contribute to this project by submitting pull requests.
 
-- [Vite Documentation](https://vitejs.dev/)
-- [React Documentation](https://reactjs.org/)
+## Libraries Used
+
+### Node
+- Description: Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine.
+- Installation:
+   ```bash
+   # No installation needed as Node.js is a runtime environment
+   ```
+
+### Express
+- Description: Express is a fast, unopinionated, minimalist web framework for Node.js.
+- Installation:
+   ```bash
+   npm install express
+   ```
+
+### Mongoose
+- Description: Mongoose is a MongoDB object modeling tool designed to work in an asynchronous environment.
+- Installation:
+   ```bash
+   npm install mongoose
+   ```
+
+### JSON Web Token (jsonwebtoken)
+- Description: JSON Web Token (JWT) is a compact, URL-safe means of representing claims to be transferred between two parties.
+- Installation:
+   ```bash
+   npm install jsonwebtoken
+   ```
+
+## Using React
+
+If you want to use React for the frontend, you can follow these steps:
+
+1. Install Vite using npm:
+   ```bash
+   npm create vite@latest
+   ```
+
+2. Provide the project name (e.g., "ABC"), choose React as the framework, and select JavaScript as the variant.
+
+3. Change into the project directory:
+   ```bash
+   cd ABC
+   ```
+
+4. Optionally, you can install dependencies:
+   ```bash
+   npm install
+   ```
+
+5. Start the development server:
+   ```bash
+   npm run dev
+   ```
+
+6. Once the server is running, you can open your web browser and access the development environment.
+```
+
 
 This `README.md` should make it easy for anyone to get started with the project and collaborate effectively.
 ```

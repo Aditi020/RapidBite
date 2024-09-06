@@ -49,8 +49,46 @@
     cursor: pointer;
 }
 
-@media (max-width: 768px) {
+.mobile__menu {
+    display: none;
+}
+
+/* Mobile Links */
+.mobile__nav {
+    display: none;
+}
+
+.mobile__link {
+    display: block;
+    text-align: center;
+    padding: 10px 0;
+    text-decoration: none;
+    color: #333;
+    border-bottom: 1px solid #ddd;
+}
+
+.mobile__link:hover {
+    background-color: #f7f7f7;
+}
+
+/* Hide the desktop menu on small screens */
+@media (max-width: 992px) {
     .menu {
         display: none;
+    }
+
+    .mobile__menu {
+        display: block;
+    }
+
+    .mobile__nav {
+        display: flex;
+        flex-direction: column;
+        background-color: white;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        position: absolute;
+        top: 60px;
+        width: 100%;
+        z-index: 999;
     }
 }

@@ -2,5 +2,17 @@
   "dependencies": {
     "bootstrap": "^5.3.3",
     "remixicon": "^4.3.0"
-  }
+  },
+  "name": "rapidbite",
+  "version": "1.0.0",
+  "description": "Follow these steps to create and set up your Vite React project.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "client":"npm run dev --prefix Frontend",
+    "server":"npm run watch --prefix Backend"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }

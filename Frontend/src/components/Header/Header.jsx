@@ -1,10 +1,8 @@
-// import React from 'react';
 import './Header.css';
-
 
 export default function Header() {
     return (
-        <>Hi</>
+        <h1 className='evilWikie'>Aditi the Evil Wikie</h1>
     );
 };
 

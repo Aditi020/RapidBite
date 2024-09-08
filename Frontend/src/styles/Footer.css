@@ -83,9 +83,10 @@
 .social__links span i {
     padding: 8px;
     background: #e2932ba7;
-    color: #897045;
+    color: #ffffff;
     border-radius: 50%;
-    line-height: 1;     /*  ensures icons are in centre */
+    line-height: 1;
+    /*  ensures icons are in centre */
     text-decoration: none;
     display: inline-block;
 }
@@ -99,14 +100,15 @@
 
     .newsletter send {
         background: #e2932ba7;
-            padding-left: 5px;
-            padding-right: 5px;
-            border-radius: 5px;
-            position: relative;
-            align-self: center;
-            display: flex;
+        padding-left: 5px;
+        padding-right: 5px;
+        border-radius: 5px;
+        position: relative;
+        align-self: center;
+        display: flex;
     }
 }
+
 @media only screen and (min-width: 1350) {
     .newsletter input {
         padding: 7px;
@@ -134,10 +136,11 @@
     .newsletter span {
         padding: 5px 15px;
         font-size: 0.7rem;
-            /* padding-left: 5px;
+        /* padding-left: 5px;
                 padding-right: 5px; */
     }
 }
+
 @media only screen and (max-width: 992px) {
     .newsletter input {
         padding: 7px;

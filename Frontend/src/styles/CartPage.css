@@ -1,0 +1,50 @@
+th {
+    text-align: center;
+}
+
+.cart__img-box {
+    width: 80px;
+}
+
+.cart__img-box img {
+    width: 100%;
+}
+
+.cart__item-del i {
+    cursor: pointer;
+}
+
+.cart__page-btn button {
+    background-color: #e18103c3;
+    border: none;
+    padding: 10px 15px;
+    color: #fff;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 0.70rem;
+    border-radius: 7px;
+}
+
+.cart__page-btn button a:hover {
+    color: #fff;
+}
+
+
+.cart__page-btn button a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.cart__subtotal {
+    color: #e18103c3;
+    font-size: 1.5rem;
+}
+
+@media only screen and (max-width: 768px) {
+
+    th,
+    td {
+        font-size: 0.8rem;
+    }
+}

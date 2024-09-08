@@ -17,11 +17,11 @@ export default function Header() {
     return (
         <header className="header">
 
-            <Container> {/* Used Bootstrap here */}
+            <Container> 
                 <div className="nav__wrapper d-flex align-items-center justify-content-between">
                     <div className="logo d-flex align-items-center" onClick={() => navigate("/home")}>
                         {/* <img src={logo} alt="logo" />  */}
-                        <h5>RapidBite</h5>
+                        <h5 style={{ color: "#e18103c3" }} >RapidBite</h5>
                     </div>
 
                     <div className={`navigation ${isMenuOpen ? 'active' : ''}`}>

@@ -1,0 +1,10 @@
+.Banner {
+    background: linear-gradient(#212245b2, #212245b2),
+        url("../assets//Images//Banner.svg");
+
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    padding: 80px 0px;
+    /* top: -10px; */
+}

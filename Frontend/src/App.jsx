@@ -11,6 +11,7 @@ function App() {
         <div>
             <Header/>
             <Routers/>
+            {/* <Home /> */}
             <Footer/>
         </div>
     )

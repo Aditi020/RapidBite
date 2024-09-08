@@ -12,12 +12,12 @@
 
 .menu a {
     text-decoration: none;
-    color: #333;
+    color: #96611de0;
     font-weight: 500;
 }
 
 .active__menu {
-    color: #ff6347;
+    color: #e18103c3;
 }
 
 .nav__right {
@@ -35,7 +35,7 @@
     position: absolute;
     top: -8px;
     right: -8px;
-    background-color: #ff6347;
+    background-color: #e18103c3;
     color: white;
     font-size: 12px;
     border-radius: 50%;

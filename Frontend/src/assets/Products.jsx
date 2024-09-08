@@ -1,62 +1,58 @@
-import B0101 from "./Foods/B1";
-import B0102 from "./Foods/B1";
-import B0103 from "./Foods/B1";
+import B0101 from "./Foods/B1.jpg";
+import B0102 from "./Foods/B1.jpg";
+import B0103 from "./Foods/B1.jpg";
 
-import B0201 from "./Foods/B2";
-import B0202 from "./Foods/B2";
-import B0203 from "./Foods/B2";
+import B0201 from "./Foods/B2.jpg";
+import B0202 from "./Foods/B2.jpg";
+import B0203 from "./Foods/B2.jpg";
 
-import B0301 from "./Foods/B3";
-import B0302 from "./Foods/B3";
-import B0303 from "./Foods/B3";
+import B0301 from "./Foods/B3.jpg";
+import B0302 from "./Foods/B3.jpg";
+import B0303 from "./Foods/B3.jpg";
 
-import B0401 from "./Foods/B4";
-import B0402 from "./Foods/B4";
-import B0403 from "./Foods/B4";
+import B0401 from "./Foods/B4.jpg";
+import B0402 from "./Foods/B4.jpg";
+import B0403 from "./Foods/B4.jpg";
 
-import B0401 from "./Foods/B5";
-import B0402 from "./Foods/B5";
-import B0403 from "./Foods/B5";
+import P0101 from "./Foods/P1.jpg";
+import P0102 from "./Foods/P1.jpg";
+import P0103 from "./Foods/P1.jpg";
 
-import P0101 from "./Foods/P1";
-import P0102 from "./Foods/P1";
-import P0103 from "./Foods/P1";
+import P0201 from "./Foods/P2.jpg";
+import P0202 from "./Foods/P2.jpg";
+import P0203 from "./Foods/P2.jpg";
 
-import P0201 from "./Foods/P2";
-import P0202 from "./Foods/P2";
-import P0203 from "./Foods/P2";
+import P0301 from "./Foods/P3.jpg";
+import P0302 from "./Foods/P3.jpg";
+import P0303 from "./Foods/P3.jpg";
 
-import P0301 from "./Foods/P3";
-import P0302 from "./Foods/P3";
-import P0303 from "./Foods/P3";
+import P0401 from "./Foods/P4.jpg";
+import P0402 from "./Foods/P4.jpg";
+import P0403 from "./Foods/P4.jpg";
 
-import P0401 from "./Foods/P4";
-import P0402 from "./Foods/P4";
-import P0403 from "./Foods/P4";
+import P0501 from "./Foods/P5.png";
+import P0502 from "./Foods/P5.png";
+import P0503 from "./Foods/P5.png";
 
-import P0501 from "./Foods/P5";
-import P0502 from "./Foods/P5";
-import P0503 from "./Foods/P5";
+import P0601 from "./Foods/P6.png";
+import P0602 from "./Foods/P6.png";
+import P0603 from "./Foods/P6.png";
 
-import P0601 from "./Foods/P6";
-import P0602 from "./Foods/P6";
-import P0603 from "./Foods/P6";
+import P0701 from "./Foods/P7.jpg";
+import P0702 from "./Foods/P7.jpg";
+import P0703 from "./Foods/P7.jpg";
 
-import P0701 from "./Foods/P7";
-import P0702 from "./Foods/P7";
-import P0703 from "./Foods/P7";
+import S0101 from "./Foods/S1.jpg";
+import S0102 from "./Foods/S1.jpg";
+import S0103 from "./Foods/S1.jpg";
 
-import S0101 from "./Foods/S1";
-import S0102 from "./Foods/S1";
-import S0103 from "./Foods/S1";
+import S0201 from "./Foods/S2.jpg";
+import S0202 from "./Foods/S2.jpg";
+import S0203 from "./Foods/S2.jpg";
 
-import S0201 from "./Foods/S2";
-import S0202 from "./Foods/S2";
-import S0203 from "./Foods/S2";
-
-import S0301 from "./Foods/S3";
-import S0302 from "./Foods/S3";
-import S0303 from "./Foods/S3";
+import S0301 from "./Foods/S3.jpg";
+import S0302 from "./Foods/S3.jpg";
+import S0303 from "./Foods/S3.jpg";
 
 const products = [
     // Burgers

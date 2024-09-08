@@ -3,7 +3,7 @@
     background: var(--bs-light);
     padding: 20px;
     border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(78, 78, 77, 0.1);
 }
 
 .checkout__form .form__group {
@@ -19,7 +19,7 @@
 }
 
 .checkout__form button {
-    background-color: var(--bs-primary);
+    background-color: #cf8625e8;
     color: var(--bs-white);
     border: none;
     padding: 10px 20px;
@@ -30,11 +30,11 @@
 }
 
 .checkout__form button:hover {
-    background-color: var(--bs-primary-dark);
+    background-color: #e19456fa;
 }
 
 .checkout__bill {
-    background: var(--bs-gray-100);
+    background: #ebaf60cc;
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -46,7 +46,7 @@
 }
 
 .checkout__total {
-    border-top: 1px solid var(--bs-gray-300);
+    border-top: 1px solid #e2932ba7;
     padding-top: 15px;
 }
 

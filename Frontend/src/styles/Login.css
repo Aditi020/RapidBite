@@ -1,4 +1,3 @@
-/* General form styling */
 .form {
     font-size: var(--bs-body-font-size);
     font-weight: var(--bs-body-font-weight);
@@ -9,18 +8,14 @@
     border-radius: 5px;
     width: 60%;
     margin: 0 auto 3rem auto;
-    /* Centering and margin */
     text-align: center;
-    /* Center align text */
     box-sizing: border-box;
 }
 
-/* Form group styling */
 .form__group {
     margin-bottom: 1.5rem;
 }
 
-/* Input styling */
 .form__group input {
     width: 100%;
     padding: 0.75rem 1rem;

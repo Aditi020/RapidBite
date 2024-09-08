@@ -15,8 +15,9 @@
 }
 
 .product__content h5 a {
-    color: #212245;
+    color: #453a21;
     font-size: 1rem;
+    text-decoration: none;
 }
 
 .product__content h5 {

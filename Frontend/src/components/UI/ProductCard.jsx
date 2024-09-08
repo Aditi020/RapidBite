@@ -3,19 +3,18 @@ import { Link } from "react-router-dom";
 import "../../styles/Productcard.css";
 
 const ProductCard = (props) => {
-  const { id, title, image01, price } = props.item;
+  const { id, title, image01, price, onAddToCart } = props.item;
 
-  // Commented out addToCart logic for now
-  // const addToCart = () => {
-  //   if (onAddToCart) {
-  //     onAddToCart({
-  //       id,
-  //       title,
-  //       image01,
-  //       price,
-  //     });
-  //   }
-  // };
+  const handleAddToCart = () => {
+    if (onAddToCart) {
+      onAddToCart({
+        id,
+        title,
+        image01,
+        price,
+      });
+    }
+  };
 
   return (
     <div className="product__item">
@@ -29,8 +28,8 @@ const ProductCard = (props) => {
         </h5>
         <div className="d-flex align-items-center justify-content-between">
           <span className="product__price">${price}</span>
-          <button className="addTOCart__btn" >
-            Add to Cart 
+          <button className="addTOCart__btn" onClick={handleAddToCart}>
+            Add to Cart
           </button>
         </div>
       </div>

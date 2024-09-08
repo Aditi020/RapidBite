@@ -86,9 +86,14 @@
     color: #ffffff;
     border-radius: 50%;
     line-height: 1;
-    /*  ensures icons are in centre */
+    justify-content: center;
     text-decoration: none;
     display: inline-block;
+}
+
+.mt-5 {
+    display: flex;
+    justify-content: center;
 }
 
 @media only screen and (max-width: 1350) {

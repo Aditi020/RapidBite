@@ -1,0 +1,59 @@
+/* General form styling */
+.form {
+    font-size: var(--bs-body-font-size);
+    font-weight: var(--bs-body-font-weight);
+    line-height: var(--bs-body-line-height);
+    color: var(--bs-body-color);
+    background: #ffefdc;
+    padding: 20px;
+    border-radius: 5px;
+    width: 60%;
+    margin: 0 auto 3rem auto;
+    /* Centering and margin */
+    text-align: center;
+    /* Center align text */
+    box-sizing: border-box;
+}
+
+/* Form group styling */
+.form__group {
+    margin-bottom: 1.5rem;
+}
+
+/* Input styling */
+.form__group input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    font-size: var(--bs-body-font-size);
+    border: 1px solid var(--bs-gray-300);
+    border-radius: 0.25rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(170, 137, 100, 0.075);
+}
+
+/* Button styling */
+.addTOCart__btn {
+    background-color: #c68433;
+    color: #ffefdc;
+    border: none;
+    padding: 0.75rem 1.25rem;
+    font-size: var(--bs-body-font-size);
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-align: center;
+}
+
+.addTOCart__btn:hover {
+    background-color: #e6a453;
+}
+
+.create-account-link {
+    color: #351f04;
+    text-decoration: none;
+    display: block;
+    /* margin-top: 1rem; */
+}
+
+.create-account-link:hover {
+    text-decoration: underline;
+}

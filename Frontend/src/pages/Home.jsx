@@ -287,7 +287,7 @@ const Home = () => {
             </section>
 
             <section>
-                
+                {/* Left for writing Testimonial */}
             </section>
         </>
     );

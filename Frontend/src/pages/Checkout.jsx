@@ -28,7 +28,6 @@ const Checkout = () => {
     };
 
     console.log("Shipping Information:", userShippingAddress);
-    // Here you would typically handle form submission, e.g., send the data to an API
   };
 
   return (

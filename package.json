@@ -9,8 +9,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "client":"npm run dev --prefix Frontend",
-    "server":"npm run watch --prefix Backend"
+    "client": "npm run dev --prefix Frontend",
+    "server": "npm run watch --prefix Backend"
   },
   "keywords": [],
   "author": "",

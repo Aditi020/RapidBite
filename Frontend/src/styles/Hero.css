@@ -1,0 +1,61 @@
+.hero__content {
+    padding-top: 70px;
+}
+
+.hero__title {
+    font-size: 2.5rem;
+    line-height: 55px;
+}
+
+.hero__title span {
+    color: #FFB534;
+}
+
+.hero__content p {
+    font-size: 1rem;
+    line-height: 30px;
+    color: #844417;
+}
+
+.hero__btns button {
+    border: none;
+    outline: none;
+    padding: 7px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.order__btn {
+    background: #FFB534;
+    color: #fff;
+    transition: 0.3s;
+}
+
+.order__btn:hover {
+    background: #212245;
+}
+/* 1FFB534 */
+/* 1ebaf60cc */
+.all__foods-btn {
+    background: transparent;
+    border: 1px solid #FFB534 !important;
+}
+
+.all__foods-btn a {
+    color: #FFB534;
+}
+
+.hero__service p {
+    color: #212245;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.shipping__icon i {
+    padding: 5px;
+    background: #FFB534;
+    color: #fff;
+    border-radius: 50%;
+    font-weight: 500 !important;
+}

@@ -57,7 +57,7 @@ const Contact = () => {
             <Col lg="6" md="6">
               <h6 className="mb-4" style={{ color:"#cf8625e8" , fontWeight:700 , fontSize:25 }}>Contact Information</h6>
               {formSubmitted ? (
-                <div className="thankyou_message">
+                <div className="thankyou_message" style={{ color:"#5da0d7"}}>
                   <h3>Thank you! We will get back to you shortly.</h3>
                 </div>
               ) : (

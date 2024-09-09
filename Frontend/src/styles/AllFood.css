@@ -28,7 +28,7 @@
 
 .paginationBttns a {
     padding: 5px 13px;
-    background: #d77e09bc;
+    background: #a85220bc;
     color: #fff !important;
     border-radius: 5px;
     display: flex;
@@ -39,7 +39,7 @@
 }
 
 .paginationBttns a:hover {
-    background: #cf8c19a7;
+    background: #d48050ea;
 }
 
 

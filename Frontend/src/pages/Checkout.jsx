@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import Banner from "../components/UI/Banner"; // Updated import for Banner component
 import { Container, Row, Col } from "reactstrap";
 import "../styles/Checkout.css";
+import CheckoutImgage from "../assets/Images/sv.avif";
+
 
 const Checkout = () => {
   const [enterName, setEnterName] = useState("");
@@ -36,7 +38,7 @@ const Checkout = () => {
       <section>
         <Container>
           <Row>
-            <Col lg="8" md="6">
+            <Col lg="7" md="6">
               <h6 className="mb-4">Shipping Address</h6>
               <form className="checkout__form" onSubmit={submitHandler}>
                 <div className="form__group">
@@ -92,7 +94,7 @@ const Checkout = () => {
                 </button>
               </form>
             </Col>
-            <Col lg="4" md="6">
+            <Col lg="5" md="7">
               <div className="checkout__bill">
                 <h6 className="d-flex align-items-center justify-content-between mb-3">
                   Subtotal: <span>${cartTotalAmount}</span>
@@ -106,6 +108,11 @@ const Checkout = () => {
                   </h5>
                 </div>
               </div>
+              <Col lg="9" md="9">
+                <div className="Contact_img">
+                  <img src={CheckoutImgage} alt="Contact Information" className="w-100" />
+                </div>
+              </Col>
             </Col>
           </Row>
         </Container>

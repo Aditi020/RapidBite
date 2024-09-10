@@ -74,6 +74,8 @@ const Home = () => {
 
     return (
         <>
+
+            {/* HERO Sect */}
             <section>
                 <Container>
                     <Row>
@@ -121,10 +123,12 @@ const Home = () => {
                 </Container>
             </section>
 
+            {/* Category Section */}
             <section className="pt-0">
                 <Category />
             </section>
 
+            {/* Key Features Food Section */}
             <section>
                 <Container>
                     <Row>
@@ -160,6 +164,7 @@ const Home = () => {
                 </Container>
             </section>
 
+            {/* Popular Food Section */}
             <section>
                 <Container>
                     <Row>
@@ -169,11 +174,7 @@ const Home = () => {
 
                         <Col lg="12">
                             <div className="food__category d-flex align-items-center justify-content-center gap-4">
-                                <button
-                                    className={`all__btn ${category === "ALL" ? "foodBtnActive" : ""
-                                        }`}
-                                    onClick={() => setCategory("ALL")}
-                                >
+                                <button className={`all__btn ${category === "ALL" ? "foodBtnActive" : ""}`} onClick={() => ("ALL")}>
                                     All
                                 </button>
                                 <button
@@ -212,6 +213,7 @@ const Home = () => {
                 </Container>
             </section>
 
+            {/* Why choose us Section */}
             <section className="why__choose-us">
                 <Container>
                     <Row>
@@ -270,6 +272,7 @@ const Home = () => {
                 </Container>
             </section>
 
+            {/* Hot Pizzas Section */}
             <section className="pt-0">
                 <Container>
                     <Row>
@@ -286,8 +289,28 @@ const Home = () => {
                 </Container>
             </section>
 
+            {/* Testimonials Section */}
             <section>
-                {/* Left for writing Testimonial */}
+                <Container>
+                    <Row>
+                        <Col lg="6" md="6">
+                            <div className="why__tasty-treat">
+                                <h5 className="testimonial_heading mb-4">Testimonial</h5>
+                                <h2 className="tasty__treat-title mb-4">
+                                    What our <span>customers</span> are saying
+                                </h2>
+                                <p className="tasty__treat-desc">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus voluptate ad dolorem, rem ea,  inventore labore saepe obcaecati ipsum quis ullam reprehenderit quam sapiente maxime. Atque, impedit!
+                                </p>
+                            </div>
+                        </Col>
+
+
+                        <Col lg="6" md="6">
+                            {/* <img src={testimonialImg} alt="Testimonials" className="w-100" /> */}
+                        </Col>
+                    </Row>
+                </Container>
             </section>
         </>
     );

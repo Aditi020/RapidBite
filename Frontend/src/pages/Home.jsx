@@ -307,11 +307,11 @@ const Home = () => {
                                 <ListGroup className="mt-4">
 
                                     <ListGroupItem className="border-0 ps-0">
-                                        <TestSlider/>
+                                        <TestSlider />
                                     </ListGroupItem>
 
                                 </ListGroup>
-                                
+
                             </div>
                         </Col>
 

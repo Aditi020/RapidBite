@@ -11,11 +11,11 @@
 }
 
 .feature__text {
-    color: #844417;
+    color: #42220b;
 }
 
 .feature__item p {
-    color: #FFB534;
+    color: #b65714;
 }
 /* 1ebaf60cc */
 /* 1FBC252 */
@@ -48,11 +48,11 @@
 }
 
 .tasty__treat-title span, .testimonial_heading {
-    color: #5b4417;
+    color: #e87817;
 }
 
 .tasty__treat-desc {
-    color: #ff8f34;
+    color: rgb(103, 86, 72);
     line-height: 28px;
 }
 
@@ -63,11 +63,11 @@
 
 .choose__us-title i {
     font-weight: 500 !important;
-    color: #ff8f34;
+    color: #bc6014;
 }
 
 .choose__us-desc {
-    color: #f26321;
+    color: #b65714;
 }
 
 .testimonial_slider_card{
@@ -80,7 +80,7 @@
 }
 
 .customer_feedback p{
-    color: #ff8f34;
+    color: #b65714;
     line-height: 28px;
     text-align: left;
 }

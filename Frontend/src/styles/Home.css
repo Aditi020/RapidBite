@@ -47,7 +47,7 @@
     color: #FFB534 !important;
 }
 
-.tasty__treat-title span {
+.tasty__treat-title span, .testimonial_heading {
     color: #5b4417;
 }
 
@@ -154,4 +154,5 @@
     .why__choose-us {
         padding-top: 0 !important;
     }
+
 }

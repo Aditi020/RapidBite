@@ -17,7 +17,8 @@ import products from "../assets/Products.jsx";
 import ProductCard from "../components/UI/ProductCard.jsx";
 import whyImg from "../assets/Images/Main2.svg";
 // import networkImg from "../assets/images/network.png";
-import TestimonialSlider from "../components/UI/Testimonial.jsx";
+// import TestimonialSlider from "../components/UI/Testimonial.jsx";
+import TestSlider from "../components/UI/Slider.jsx";
 
 const featureData = [
     {
@@ -163,7 +164,7 @@ const Home = () => {
                     </Row>
                 </Container>
             </section>
-
+            
             {/* Popular Food Section */}
             <section>
                 <Container>
@@ -291,7 +292,7 @@ const Home = () => {
 
             {/* Testimonials Section */}
             <section>
-                <Container>
+            <Container>
                     <Row>
                         <Col lg="6" md="6">
                             <div className="why__tasty-treat">
@@ -302,9 +303,17 @@ const Home = () => {
                                 <p className="tasty__treat-desc">
                                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus voluptate ad dolorem, rem ea,  inventore labore saepe obcaecati ipsum quis ullam reprehenderit quam sapiente maxime. Atque, impedit!
                                 </p>
+
+                                <ListGroup className="mt-4">
+
+                                    <ListGroupItem className="border-0 ps-0">
+                                        <TestSlider/>
+                                    </ListGroupItem>
+
+                                </ListGroup>
+                                
                             </div>
                         </Col>
-
 
                         <Col lg="6" md="6">
                             {/* <img src={testimonialImg} alt="Testimonials" className="w-100" /> */}

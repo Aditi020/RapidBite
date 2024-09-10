@@ -1,11 +1,48 @@
-.login-link {
+.form {
+    font-size: var(--bs-body-font-size);
+    font-weight: var(--bs-body-font-weight);
+    line-height: var(--bs-body-line-height);
+    color: var(--bs-body-color);
+    background: #fcc564df;
+    padding: 15px;
+    border-radius: 5px;
+    width: 60%;
+    margin: 0 auto 3rem auto;
+    text-align: center;
+    box-sizing: border-box;
+    margin-top: 10px;
+}
+
+.Redirect-Link {
     color: #176ba0c7;
     text-decoration: none;
     display: block;
     /* margin-top: 1rem; */
 }
 
-.login-link:hover {
+.Redirect-Link:hover {
     color: rgb(24, 95, 92);
     text-decoration: underline;
+}
+
+/* Button styling */
+.Signin-btn {
+    background-color: #dc8d2c;
+    color: #ffefdc;
+    border: none;
+    padding: 0.50rem 1.25rem;
+    font-size: var(--bs-body-font-size);
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-align: center;
+}
+
+.Signin-btn:hover {
+    background-color: #3f7a80;
+}
+
+.RegisterationImg {
+    width: 90%;
+    margin-top: -5%;
 }

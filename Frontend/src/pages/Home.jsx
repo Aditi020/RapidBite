@@ -15,7 +15,7 @@ import products from "../assets/Products.jsx";
 // import foodCategoryImg02 from "../assets/images/pizza.png";
 // import foodCategoryImg03 from "../assets/images/Sandwich.png";
 import ProductCard from "../components/UI/ProductCard.jsx";
-// import whyImg from "../assets/images/location.png";
+import whyImg from "../assets/Images/Main2.svg";
 // import networkImg from "../assets/images/network.png";
 import TestimonialSlider from "../components/UI/Testimonial.jsx";
 
@@ -216,7 +216,7 @@ const Home = () => {
                 <Container>
                     <Row>
                         <Col lg="6" md="6">
-                            {/* <img src={whyImg} alt="why-tasty-treat" className="w-100" /> */}
+                            <img src={whyImg} alt="why-tasty-treat" className="w-100" style={{width:"140px" }}/>
                         </Col>
                         <Col lg="6" md="6">
                             <div className="why__tasty-treat">

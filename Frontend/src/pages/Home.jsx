@@ -18,7 +18,7 @@ import ProductCard from "../components/UI/ProductCard.jsx";
 import whyImg from "../assets/Images/Main2.svg";
 // import networkImg from "../assets/images/network.png";
 // import TestimonialSlider from "../components/UI/Testimonial.jsx";
-import TestSlider from "../components/UI/Slider.jsx";
+import TestSlider from "../components/UI/Testimonial.jsx";
 
 const featureData = [
     {

@@ -19,16 +19,17 @@ export default function TestimonialSlider() {
                 }}
 
                 modules={[Pagination, Autoplay]}
-                className="mySwiper"
-            >
+                className="mySwiper">
                 <SwiperSlide className='testimonial_slider_card'>
 
                     <div className='customer_feedback'>
-                        <p>
-                            &quot; A very evil person with a lots and lots of evil stickers. &quot;
+                        <p >
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis
+                            atque, quam minus totam maiores laborum! Impedit consectetur illum
+                            aliquid odit. Odit dolore ipsum quod debitis nostrum necessitatibus
+                            quis dolorem quas!
                         </p>
-                    </div>
-
+                        </div>
                     <div className='customer_detail'>
 
                         <div className='customer_profile_picture'>
@@ -44,8 +45,11 @@ export default function TestimonialSlider() {
                 <SwiperSlide className='testimonial_slider_card'>
 
                     <div className='customer_feedback'>
-                        <p>
-                            &quot; A very kind and innocent person. &quot;
+                        <p >
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis
+                            atque, quam minus totam maiores laborum! Impedit consectetur illum
+                            aliquid odit. Odit dolore ipsum quod debitis nostrum necessitatibus
+                            quis dolorem quas!
                         </p>
                     </div>
 
@@ -64,8 +68,11 @@ export default function TestimonialSlider() {
                 <SwiperSlide className='testimonial_slider_card'>
 
                     <div className='customer_feedback'>
-                        <p>
-                            &quot; A very evil person with a lots and lots of evil stickers. &quot;
+                        <p >
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis
+                            atque, quam minus totam maiores laborum! Impedit consectetur illum
+                            aliquid odit. Odit dolore ipsum quod debitis nostrum necessitatibus
+                            quis dolorem quas!
                         </p>
                     </div>
 
@@ -84,8 +91,11 @@ export default function TestimonialSlider() {
                 <SwiperSlide className='testimonial_slider_card'>
 
                     <div className='customer_feedback'>
-                        <p>
-                            &quot; A very kind and innocent person. &quot;
+                        <p >
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis
+                            atque, quam minus totam maiores laborum! Impedit consectetur illum
+                            aliquid odit. Odit dolore ipsum quod debitis nostrum necessitatibus
+                            quis dolorem quas!
                         </p>
                     </div>
 

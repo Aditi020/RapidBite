@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import { Container, Row, Col } from "reactstrap";
 import "../styles/FoodDetails.css";
 import ProductCard from "../components/UI/ProductCard";
-import Banner from "../components/UI/Banner"; // Same as in AllFoods.jsx
+import Banner from "../components/UI/Banner"; 
 
 const FoodDetails = () => {
     const [tab, setTab] = useState("desc");
@@ -34,8 +34,7 @@ const FoodDetails = () => {
 
     return (
         <div>
-            {/* Using Banner component just like in AllFoods.jsx */}
-            <Banner title={title} /> {/* Pass title as a prop */}
+            <Banner title={title} /> 
             <section>
                 <Container>
                     <Row>

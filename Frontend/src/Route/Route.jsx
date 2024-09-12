@@ -5,6 +5,7 @@ import Cart from "../pages/CartPage";
 import Checkout from "../pages/Checkout";
 import Contact from "../pages/Contact";
 import Login from "../pages/Login";
+import AdminLogin from "../pages/Admin_Login";
 import Register from "../pages/Registeration";
 import FoodDetails from "../pages/FoodDetails";
 
@@ -17,7 +18,8 @@ const Routers = () => {
             <Route path="/foods/:id" element={<FoodDetails />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/checkout" element={<Checkout />} />
-            <Route path="/login" element={<Login />} />
+            <Route path="/user_login" element={<Login />} />
+            <Route path="/admin_login" element={<AdminLogin />} />
             <Route path="/register" element={<Register />} />
             <Route path="/contact" element={<Contact />} />
         </Routes>

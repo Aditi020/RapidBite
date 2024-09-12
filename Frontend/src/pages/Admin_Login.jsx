@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import React, { useState, useRef } from "react";
 import Banner from "../components/UI/Banner";
 import { Container, Row, Col } from "reactstrap";
 import { Link } from "react-router-dom";
@@ -6,7 +6,7 @@ import "../styles/Login.css";
 import LoginImg from "../assets/Images/Login.svg";
 import ForgotImg from "../assets/Images/Forgot.svg";
 
-const Login = () => {
+const AdminLogin = () => {
   const [activeForm, setActiveForm] = useState("login");
   const loginEmailRef = useRef(null);
   const loginPasswordRef = useRef(null);
@@ -26,7 +26,7 @@ const Login = () => {
 
   return (
     <div>
-      <Banner title="User Login" />
+      <Banner title="Admin Login" />
       <section>
         <Container>
           <Row>
@@ -62,12 +62,6 @@ const Login = () => {
                     <p className="Redirect-Link" onClick={() => toggleForm("forgot")}>
                       Forgot your password?{" "}
                     </p>
-                    <p className="form__text">
-                      <Link to="/register" className="form__link pointer">
-                        New User?{" "}
-                        Create an account
-                      </Link>
-                    </p>
                   </div>
                 )}
 
@@ -95,6 +89,7 @@ const Login = () => {
                     </p>
                   </div>
                 )}
+                
               </div>
             </Col>
 
@@ -112,4 +107,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default AdminLogin;

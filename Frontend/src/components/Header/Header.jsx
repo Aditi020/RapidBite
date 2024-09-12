@@ -5,6 +5,8 @@ import "../../styles/Header.css"
 import { IoBasketOutline, IoPersonOutline, IoMenuOutline, IoCloseOutline } from 'react-icons/io5';
 import { Container } from 'reactstrap'; // Used Bootstrap here
 
+import Dropdown from 'react-bootstrap/Dropdown';
+
 export default function Header() {
 
     const [isMenuOpen, setIsMenuOpen] = useState(false); // Manage mobile menu state
@@ -17,7 +19,7 @@ export default function Header() {
     return (
         <header className="header">
 
-            <Container> 
+            <Container>
                 <div className="nav__wrapper d-flex align-items-center justify-content-between">
                     <div className="logo d-flex align-items-center" onClick={() => navigate("/home")}>
                         {/* <img src={logo} alt="logo" />  */}
@@ -47,11 +49,39 @@ export default function Header() {
                             <IoBasketOutline />
                             <span className="cart__badge">0</span>
                         </span>
-                        <span className="user">
+
+                        {/* <span className="user">
                             <Link to="/login">
                                 <IoPersonOutline />
                             </Link>
-                        </span>
+                        </span> */}
+
+
+                        <Dropdown>
+                            <Dropdown.Toggle variant="Warning" id="dropdown-basic">
+                                <IoPersonOutline />
+                            </Dropdown.Toggle>
+
+                            <Dropdown.Menu>
+
+                                <Dropdown.Item>
+                                    <Link to="/user_login" className='login_options'>
+                                        User
+                                    </Link>
+                                </Dropdown.Item>
+
+                                <Dropdown.Item>
+                                    <Link to="/admin_login" className='login_options'>
+                                        Admin
+                                    </Link>
+                                </Dropdown.Item>
+
+                            </Dropdown.Menu>
+                        </Dropdown>
+
+
+
+
                         <span className="mobile__menu" onClick={toggleMenu}>
                             {isMenuOpen ? <IoCloseOutline /> : <IoMenuOutline />}
                         </span>

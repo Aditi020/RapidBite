@@ -7,39 +7,35 @@
 // 1. UserRoute.js imports functions from UserController.js.
 // 2. UserController.js may import or reference AuthMiddleware.js or other files that, in turn, import the same UserRoute.js or another related module.
 // 3. This causes Node.js to load one module before the other is fully defined, leading to incomplete exports(such as [object Undefined] for route callbacks).
+ 
 
-const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
 // Register user service
 const registerUser = async ({ name, email, password }) => {
-    const { User } = require('../models/UserModel'); // Destructure User // Lazy loading
+    const { User } = require('../models/UserModel'); // Lazy loading
     const existingUser = await User.findOne({ email });
     if (existingUser) throw new Error('User already exists');
 
-    const hashedPassword = await bcrypt.hash(password, 10);
-    const newUser = new User({ name, email, password: hashedPassword });
+    const newUser = new User({ name, email, password });
     return newUser.save();
 };
 
 // Login user service
 const loginUser = async (email, password) => {
-    const User = require('../models/UserModel'); // Lazy loading
+    const { User } = require('../models/UserModel'); // Lazy loading
     const user = await User.findOne({ email });
-    // This ensures that the JWT token generated during login contains both the username and userId.
-    
+
     if (!user) throw new Error("User does not exist");
+    if (password !== user.password) throw new Error("Invalid credentials");
 
-    const isMatch = await bcrypt.compare(password, user.password);
-    if (!isMatch) throw new Error("Invalid credentials");
-
-    const token = jwt.sign({ username: user.name, userId: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
+    const token = jwt.sign({ userId: user._id, username: user.name }, process.env.JWT_SECRET, { expiresIn: '1h' });
     return token;
 };
 
 // Get user profile
 const getUserProfile = async (userId) => {
-    const { User } = require('../models/UserModel'); // Destructure User // Lazy loading
+    const { User } = require('../models/UserModel'); // Lazy loading
     const user = await User.findById(userId);
     if (!user) throw new Error("User not found");
 
@@ -52,7 +48,7 @@ const getUserProfile = async (userId) => {
 
 // Update user profile
 const updateUserProfile = async (userId, { name, email }) => {
-    const { User } = require('../models/UserModel'); // Destructure User // Lazy loading
+    const { User } = require('../models/UserModel'); // Lazy loading
     const updatedUser = await User.findByIdAndUpdate(userId, { name, email }, { new: true, runValidators: true });
     if (!updatedUser) throw new Error("User not found");
 
@@ -61,7 +57,7 @@ const updateUserProfile = async (userId, { name, email }) => {
 
 // Delete user profile
 const deleteUserProfile = async (userId) => {
-    const { User } = require('../models/UserModel'); // Destructure User // Lazy loading
+    const { User } = require('../models/UserModel'); // Lazy loading
     const user = await User.findByIdAndDelete(userId);
     if (!user) throw new Error("User not found");
 
@@ -70,14 +66,13 @@ const deleteUserProfile = async (userId) => {
 
 // Change user password
 const changeUserPassword = async (userId, oldPassword, newPassword) => {
-    const { User } = require('../models/UserModel'); // Destructure User // Lazy loading
+    const { User } = require('../models/UserModel'); // Lazy loading
     const user = await User.findById(userId);
     if (!user) throw new Error("User not found");
+    if (oldPassword !== user.password) throw new Error("Incorrect current password");
 
-    const isMatch = await bcrypt.compare(oldPassword, user.password);
-    if (!isMatch) throw new Error("Incorrect current password");
-
-    user.password = await bcrypt.hash(newPassword, 10);
+    // Update with plain text password
+    user.password = newPassword;
     return user.save();
 };
 

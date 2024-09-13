@@ -1,4 +1,3 @@
-// Register a new user
 const registerUser = async (req, res) => {
     const userService = require('../Services/UserService'); // Lazy loading
     const { name, email, password } = req.body;
@@ -10,7 +9,6 @@ const registerUser = async (req, res) => {
     }
 };
 
-// Login user
 const loginUser = async (req, res) => {
     const userService = require('../Services/UserService'); // Lazy loading
     const { email, password } = req.body;
@@ -23,7 +21,6 @@ const loginUser = async (req, res) => {
     }
 };
 
-// Get user profile
 const getUserProfile = async (req, res) => {
     const userService = require('../Services/UserService'); // Lazy loading
     try {
@@ -37,7 +34,6 @@ const getUserProfile = async (req, res) => {
     }
 };
 
-// Update user profile
 const updateUserProfile = async (req, res) => {
     const userService = require('../Services/UserService'); // Lazy loading
     try {
@@ -49,7 +45,6 @@ const updateUserProfile = async (req, res) => {
     }
 };
 
-// Delete user profile
 const deleteUserProfile = async (req, res) => {
     const userService = require('../Services/UserService'); // Lazy loading
     try {
@@ -60,7 +55,6 @@ const deleteUserProfile = async (req, res) => {
     }
 };
 
-// Change user password
 const changeUserPassword = async (req, res) => {
     const userService = require('../Services/UserService'); // Lazy loading
     const { oldPassword, newPassword } = req.body;
@@ -72,7 +66,6 @@ const changeUserPassword = async (req, res) => {
     }
 };
 
-// Get user orders
 const getUserOrders = async (req, res) => {
     const userService = require('../Services/UserService'); // Lazy loading
     try {

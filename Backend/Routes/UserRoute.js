@@ -18,7 +18,7 @@ router.post("/register", registerUser);
 router.post("/login", loginUser);
 
 router.get("/profile", userMiddleware, getUserProfile);
-
+ 
 router.put("/profile/update", userMiddleware, updateUserProfile);  // Update user profile
 
 router.delete("/profile/delete", userMiddleware, deleteUserProfile);  // Delete user profile

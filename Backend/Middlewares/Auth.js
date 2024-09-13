@@ -1,8 +1,7 @@
 const jwt = require("jsonwebtoken");
-require("dotenv").config(); 
+require("dotenv").config();
 
-const JWT_SECRET = "your_jwt_secret";
-
+const JWT_SECRET = process.env.JWT_SECRET || "your_jwt_secret"; // Make sure this is set in your .env
 
 function extractToken(req) {
     const authHeader = req.headers.authorization;
@@ -20,7 +19,7 @@ function userMiddleware(req, res, next) {
 
     try {
         const decodedValue = jwt.verify(token, JWT_SECRET);
-        if (decodedValue && decodedValue.userId) { // Extract both userId and username
+        if (decodedValue && decodedValue.userId) { // Extract userId
             req.userId = decodedValue.userId;
             req.username = decodedValue.username;
             next();
@@ -32,8 +31,7 @@ function userMiddleware(req, res, next) {
     }
 }
 
-
-function adminiddleware(req, res, next) {
+function adminMiddleware(req, res, next) {
     const token = extractToken(req);
     if (!token) {
         return res.status(401).json({ msg: "No token provided" });
@@ -52,5 +50,4 @@ function adminiddleware(req, res, next) {
     }
 }
 
-
-module.exports = { userMiddleware, adminiddleware, };
+module.exports = { userMiddleware, adminMiddleware };

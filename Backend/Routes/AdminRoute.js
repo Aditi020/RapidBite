@@ -1,17 +1,27 @@
-const express = require('express');
-const adminController = require('../Controllers/AdminController');
-const authMiddleware = require('../Middlewares/Auth'); // Ensures only admins access this
+const express = require("express");
+const {
+    registerAdmin,
+    loginAdmin,
+    getAdminProfile,
+    updateAdminProfile,
+    changeAdminPassword,  
+    deleteAdminProfile
+} = require("../Controllers/AdminController");
+
+const { adminMiddleware } = require("../Middlewares/Auth");
 
 const router = express.Router();
 
-// Admin-specific routes
-router.get('/users', authMiddleware, adminController.getAllUsers); // Get all users (admin-only)
+router.post("/register", registerAdmin);
 
-router.post('/menu', authMiddleware, adminController.addMenuItem); // Add new menu item
+router.post("/login", loginAdmin);
 
-router.put('/menu/:id', authMiddleware, adminController.updateMenuItem); // Update a menu item by ID
- 
-router.delete('/menu/:id', authMiddleware, adminController.deleteMenuItem); // Delete a menu item by ID
+router.get("/profile", adminMiddleware, getAdminProfile);
 
+router.put("/profile/update", adminMiddleware, updateAdminProfile);  
+
+router.delete("/profile/delete", adminMiddleware, deleteAdminProfile);
+
+router.put("/profile/change-password", adminMiddleware, changeAdminPassword);  
 
 module.exports = router;

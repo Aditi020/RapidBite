@@ -4,8 +4,8 @@ const {
     loginUser,
     getUserProfile,
     updateUserProfile,
-    changeUserPassword,   // Ensure this is imported
-    getUserOrders,        // Ensure this is imported
+    changeUserPassword,
+    getUserOrders,     
     deleteUserProfile
 } = require("../Controllers/UserController");
   
@@ -19,13 +19,13 @@ router.post("/login", loginUser);
 
 router.get("/profile", userMiddleware, getUserProfile);
  
-router.put("/profile/update", userMiddleware, updateUserProfile);  // Update user profile
+router.put("/profile/update", userMiddleware, updateUserProfile);  
 
-router.delete("/profile/delete", userMiddleware, deleteUserProfile);  // Delete user profile
+router.delete("/profile/delete", userMiddleware, deleteUserProfile);
 
-router.put("/profile/change-password", userMiddleware, changeUserPassword);  // Change user password
+router.put("/profile/change-password", userMiddleware, changeUserPassword); 
 
-router.get("/profile/orders", userMiddleware, getUserOrders);  // Get user orders
+router.get("/profile/orders", userMiddleware, getUserOrders); 
 
 
 module.exports = router;

@@ -72,7 +72,6 @@ const changeAdminPassword = async (req, res) => {
 };
 
 // Add Menu Item with Image Upload (Admin only)
-// Add Menu Item with Image Upload (Admin only)
 const addMenuItem = async (req, res) => {
     // Check if an image URL is provided in the request body
     if (req.body.imageUrl) {  // Use 'imageUrl' with lowercase 'u'

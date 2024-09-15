@@ -30,7 +30,6 @@ router.delete("/profile/delete", adminMiddleware, deleteAdminProfile);
 
 // Menu management routes (protected)
 router.post('/menu/add', adminMiddleware, addMenuItem);
-
 router.put('/menu/:id', adminMiddleware, updateMenuItem);
 
 module.exports = router;

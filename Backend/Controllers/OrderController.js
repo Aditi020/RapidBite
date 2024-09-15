@@ -1,36 +1,117 @@
-const { Order } = require('../models/OrderModel');
-const { orderValidationSchema } = require('../models/OrderModel');
 
-// Get orders for the logged-in user
-const getUserOrders = async (req, res) => {
+const { Menu } = require('../models/MenuModel');  // Assuming this is your Menu model
+const {Order} = require('../models/OrderModel');    // Order model
+
+// Place a new order (User)
+const placeOrder = async (req, res) => {
+    const { items } = req.body;  // Array of { itemId, quantity }
+    const userId = req.userId;  // Change this to req.userId
+
     try {
-        const userId = req.user.id;
+        // Fetch menu details for each item
+        let totalAmount = 0;
+        const orderItems = await Promise.all(items.map(async (item) => {
+            const menuItem = await Menu.findById(item.itemId);
+
+            if (!menuItem) {
+                throw new Error(`Menu item with ID ${item.itemId} not found`);
+            }
+
+            totalAmount += menuItem.price * item.quantity;
+
+            return {
+                itemId: menuItem._id,
+                name: menuItem.name,
+                quantity: item.quantity,
+                price: menuItem.price
+            };
+        }));
+
+        // Create new order
+        const newOrder = new Order({
+            userId,  // This will now refer to req.userId
+            items: orderItems,
+            totalAmount,
+            status: 'Pending',
+            createdAt: new Date()
+        });
+
+        await newOrder.save();
+        res.status(201).json({ msg: 'Order placed successfully', order: newOrder });
+    } catch (error) {
+        res.status(500).json({ msg: 'Failed to place order', error: error.message });
+    }
+};
+
+// Get all orders for the logged-in user
+const getUserOrders = async (req, res) => {
+    const userId = req.userId;  // Use req.userId instead of req.user._id
+
+    try {
         const orders = await Order.find({ userId });
         res.status(200).json(orders);
     } catch (error) {
-        res.status(500).json({ message: 'Failed to fetch user orders', error });
+        res.status(500).json({ msg: 'Failed to fetch orders', error });
     }
 };
 
-// Place a new order (Cart -> Order)
-const placeOrder = async (req, res) => {
+// Get a specific order by ID (User)
+const getOrderById = async (req, res) => {
+    const { id } = req.params;
+
     try {
-        const { foodItems, totalAmount } = req.body;
-        const userId = req.user.id;
+        const order = await Order.findById(id);
+        if (!order) return res.status(404).json({ msg: 'Order not found' });
 
-        // Validate order data using Zod
-        const validationResult = orderValidationSchema.safeParse({ userId, foodItems, totalAmount, status: 'pending' });
-        if (!validationResult.success) return res.status(400).json({ message: 'Invalid order data', errors: validationResult.error.issues });
+        // Ensure the order belongs to the logged-in user
+        if (order.userId.toString() !== req.userId.toString()) {
+            return res.status(403).json({ msg: 'Unauthorized access to this order' });
+        }
 
-        const order = new Order({ userId, foodItems, totalAmount, status: 'pending' });
-        await order.save();
-        res.status(201).json(order);
+        res.status(200).json(order);
     } catch (error) {
-        res.status(500).json({ message: 'Failed to place order', error });
+        res.status(500).json({ msg: 'Failed to fetch order', error });
     }
 };
+
+// Update order status (Admin)
+const updateOrderStatus = async (req, res) => {
+    const { id } = req.params;
+    const { status } = req.body;
+
+    try {
+        const order = await Order.findById(id);
+        if (!order) return res.status(404).json({ msg: 'Order not found' });
+
+        order.status = status;
+        await order.save();
+
+        res.status(200).json({ msg: 'Order status updated successfully', order });
+    } catch (error) {
+        res.status(500).json({ msg: 'Failed to update order status', error });
+    }
+};
+
+// Delete an order (Admin)
+const deleteOrder = async (req, res) => {
+    const { id } = req.params;
+
+    try {
+        const order = await Order.findById(id);
+        if (!order) return res.status(404).json({ msg: 'Order not found' });
+
+        await order.deleteOne();
+        res.status(200).json({ msg: 'Order deleted successfully' });
+    } catch (error) {
+        res.status(500).json({ msg: 'Failed to delete order', error });
+    }
+};
+
 
 module.exports = {
-    getUserOrders,
     placeOrder,
+    getUserOrders,
+    getOrderById,
+    updateOrderStatus,
+    deleteOrder
 };

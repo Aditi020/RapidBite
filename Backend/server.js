@@ -8,6 +8,7 @@ const cors = require("cors");
 const userRoutes = require("./Routes/UserRoute");
 const adminRoutes = require("./Routes/AdminRoute");
 const menuRoutes = require("./Routes/MenuRoute");
+const orderRoutes = require("./Routes/OrderRoute");
 
 // require("./Config/db");  // Make sure your db connection logic is correct
 
@@ -22,6 +23,7 @@ app.use(express.json());
 app.use("/api/users", userRoutes);
 app.use("/api/admin", adminRoutes);
 app.use("/api/menu", menuRoutes);
+app.use("/api/order", orderRoutes);
 
 app.get("/", (req, res) => {
     res.send("Welcome to the RapidBite API");

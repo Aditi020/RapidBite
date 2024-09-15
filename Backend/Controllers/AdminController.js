@@ -113,29 +113,23 @@ const addMenuItem = async (req, res) => {
 
 
 
-// Update Menu Item with Image Upload (Admin only)
+// Update Menu Item with Image Upload or URL (Admin only)
 const updateMenuItem = async (req, res) => {
-    upload.single('image')(req, res, async (err) => {
-        if (err) {
-            return res.status(400).json({ msg: "File upload error: " + err.message });
-        }
-
+    // Check if an image URL is provided in the request body
+    if (req.body.imageUrl) {
         const { id } = req.params;  // Menu item ID from route parameters
         const { name, description, price, category, availability } = req.body;
-        
+
         const menuData = {
             name,
             description,
             price,
             category,
-            availability
+            availability,
+            imageUrl: req.body.imageUrl // Use imageUrl from the request body
         };
 
         try {
-            if (req.file) {
-                menuData.imageURL = `/uploads/${req.file.filename}`;  // Update file path if image is provided
-            }
-
             // Call service to update the menu item
             const updatedMenuItem = await AdminService.updateMenuService(id, menuData);
             if (!updatedMenuItem) {
@@ -144,10 +138,46 @@ const updateMenuItem = async (req, res) => {
 
             res.status(200).json({ msg: 'Menu item updated successfully', menuItem: updatedMenuItem });
         } catch (err) {
-            res.status(400).json({ msg: "Error updating menu item: " + err.message });
+            return res.status(400).json({ msg: "Error updating menu item: " + err.message });
         }
-    });
+    } else {
+        // If no image URL, use multer to handle file upload
+        upload.single('image')(req, res, async (err) => {
+            if (err) {
+                return res.status(400).json({ msg: "File upload error: " + err.message });
+            }
+
+            const { id } = req.params;  // Menu item ID from route parameters
+            const { name, description, price, category, availability } = req.body;
+
+            const menuData = {
+                name,
+                description,
+                price,
+                category,
+                availability
+            };
+
+            try {
+                if (req.file) {
+                    // Save file path to imageUrl if a file is uploaded
+                    menuData.imageUrl = `/uploads/${req.file.filename}`;
+                }
+
+                // Call service to update the menu item
+                const updatedMenuItem = await AdminService.updateMenuService(id, menuData);
+                if (!updatedMenuItem) {
+                    return res.status(404).json({ msg: "Menu item not found" });
+                }
+
+                res.status(200).json({ msg: 'Menu item updated successfully', menuItem: updatedMenuItem });
+            } catch (err) {
+                res.status(400).json({ msg: "Error updating menu item: " + err.message });
+            }
+        });
+    }
 };
+
 
 module.exports = {
     registerAdmin,

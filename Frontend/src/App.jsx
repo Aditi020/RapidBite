@@ -6,6 +6,7 @@ import { useLocation } from 'react-router-dom';
 import { CSSTransition, TransitionGroup } from 'react-transition-group'; // Import for transitions
 import Routers from './Route/Route.jsx';
 import "./styles/PageTransition.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
     const location = useLocation(); // Get the current location from react-router

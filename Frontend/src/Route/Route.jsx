@@ -8,6 +8,7 @@ import Login from "../pages/Login";
 import AdminLogin from "../pages/Admin_Login";
 import Register from "../pages/Registeration";
 import FoodDetails from "../pages/FoodDetails";
+import AddNewFoodItem from "../pages/AddNewFoodItem";
 
 const Routers = () => {
     return (
@@ -20,6 +21,7 @@ const Routers = () => {
             <Route path="/checkout" element={<Checkout />} />
             <Route path="/user_login" element={<Login />} />
             <Route path="/admin_login" element={<AdminLogin />} />
+            <Route path="/add_food_form" element={<AddNewFoodItem />} />
             <Route path="/register" element={<Register />} />
             <Route path="/contact" element={<Contact />} />
         </Routes>

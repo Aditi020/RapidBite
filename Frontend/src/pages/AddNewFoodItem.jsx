@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import { useState, useRef } from "react";
 import Banner from "../components/UI/Banner";
 import { Container, Row, Col } from "reactstrap";
 import { Link } from "react-router-dom";
@@ -6,7 +6,9 @@ import "../styles/Login.css";
 import LoginImg from "../assets/Images/Login.svg";
 import ForgotImg from "../assets/Images/Forgot.svg";
 
-const AdminLogin = () => {
+import AddNewFoodItemFormImage from "../assets/Images/AddNewFoodItemFormImage.png"
+
+const AddNewFoodItem = () => {
   const [activeForm, setActiveForm] = useState("login");
   const loginEmailRef = useRef(null);
   const loginPasswordRef = useRef(null);
@@ -26,12 +28,11 @@ const AdminLogin = () => {
 
   return (
     <div>
-      <Banner title="Admin Login" />
+      <Banner title="Add A New Food Item" />
       <section>
         <Container>
           <Row>
-            
-            <Col lg="6" md="6" sm="12" className="mx-auto">
+            <Col lg="8" md="8" sm="12" className="mx-auto">
               <div className="form-container">
                 {/* Login Form */}
                 {activeForm === "login" && (
@@ -63,6 +64,12 @@ const AdminLogin = () => {
                     <p className="Redirect-Link" onClick={() => toggleForm("forgot")}>
                       Forgot your password?{" "}
                     </p>
+                    <p className="form__text">
+                      <Link to="/register" className="form__link pointer">
+                        New User?{" "}
+                        Create an account
+                      </Link>
+                    </p>
                   </div>
                 )}
 
@@ -90,18 +97,16 @@ const AdminLogin = () => {
                     </p>
                   </div>
                 )}
-                
               </div>
             </Col>
 
-            <Col lg="6" md="6" sm="12" className="m-auto text-center">
+            <Col lg="4" md="4" sm="12" className="m-auto text-center">
               <img
-                src={activeForm === "login" ? LoginImg : ForgotImg} 
-                alt={activeForm === "login" ? "Login-img" : "Forgot-img"} 
-                className={activeForm === "login" ? "LoginImg" : "ForgotImg"} 
+                src={AddNewFoodItemFormImage} 
+                alt=""
+                className="addNewFoodSideImage"
               />
             </Col>
-
           </Row>
         </Container>
       </section>
@@ -109,4 +114,4 @@ const AdminLogin = () => {
   );
 };
 
-export default AdminLogin;
+export default AddNewFoodItem;

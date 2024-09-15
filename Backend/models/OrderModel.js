@@ -12,7 +12,7 @@ const orderValidationSchema = z.object({
     status: z.enum(['pending', 'completed', 'cancelled']),
 });
 
-// Corrected Schema definition (fixed typo: orderSchea -> orderSchema)
+// Mongoose Schema definition for Order
 const orderSchema = new mongoose.Schema({
     userId: {
         type: mongoose.Schema.Types.ObjectId,

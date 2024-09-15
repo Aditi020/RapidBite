@@ -1,15 +1,10 @@
 const express = require('express');
-const orderController = require('../Controllers/OrderController');
-const authMiddleware = require('../Middlewares/Auth');
-
+const Order = require('../models/Order');
+const { UserMiddleware } = require('../Middlewares/Auth');
 const router = express.Router();
 
-// Order-related routes
-router.post('/', authMiddleware, orderController.placeOrder); // Place a new order
- 
-router.get('/:userId', authMiddleware, orderController.getOrdersByUser); // Get all orders by user
- 
-router.put('/:orderId', authMiddleware, orderController.updateOrderStatus); // Update order status
+// Route for user to view their orders
+router.get('/user/orders', UserMiddleware, getUserOrders); // Get user orders
 
 
 module.exports = router;

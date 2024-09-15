@@ -10,7 +10,6 @@
     "preview": "vite preview",
     "client": "npm run dev --prefix Frontend"
   },
-
   "dependencies": {
     "bootstrap": "^5.3.3",
     "react": "^18.3.1",

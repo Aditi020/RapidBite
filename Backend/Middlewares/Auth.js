@@ -19,7 +19,7 @@ function userMiddleware(req, res, next) {
 
     try {
         const decodedValue = jwt.verify(token, JWT_SECRET);
-        if (decodedValue && decodedValue.userId) { // Extract userId
+        if (decodedValue && decodedValue.userId) { 
             req.userId = decodedValue.userId;
             req.username = decodedValue.username;
             next();
@@ -31,23 +31,21 @@ function userMiddleware(req, res, next) {
     }
 }
 
-function adminMiddleware(req, res, next) {
-    const token = extractToken(req);
+const adminMiddleware = (req, res, next) => {
+    const token = req.headers.authorization && req.headers.authorization.split(" ")[1];
+
     if (!token) {
-        return res.status(401).json({ msg: "No token provided" });
+        return res.status(401).json({ msg: "No token provided, access denied" });
     }
 
     try {
-        const decodedValue = jwt.verify(token, JWT_SECRET);
-        if (decodedValue && decodedValue.username && decodedValue.role === 'admin') {
-            req.username = decodedValue.username;
-            next();
-        } else {
-            return res.status(403).json({ msg: "Unauthorized, admin access required" });
-        }
-    } catch (e) {
-        return res.status(403).json({ msg: "Token verification failed" });
+        const decoded = jwt.verify(token, process.env.JWT_SECRET); 
+        req.AdminId = decoded.AdminId; 
+        next(); 
+        
+    } catch (err) {
+        return res.status(401).json({ msg: "Invalid token, access denied" });
     }
-}
+};
 
 module.exports = { userMiddleware, adminMiddleware };

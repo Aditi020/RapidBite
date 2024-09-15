@@ -9,6 +9,7 @@
 // 3. This causes Node.js to load one module before the other is fully defined, leading to incomplete exports(such as [object Undefined] for route callbacks).
 
 const jwt = require('jsonwebtoken');
+const { Menu } = require('../models/MenuModel');
 
 // Register Admin service
 const registerAdmin = async ({ name, email, password }) => {
@@ -75,6 +76,22 @@ const changeAdminPassword = async (AdminId, oldPassword, newPassword) => {
     return admin.save();
 };
 
+// Admin function to add a menu item
+const addMenuService = async (menuData) => {
+    const menuItem = new Menu(menuData);
+    return await menuItem.save();
+};
+
+// Admin function to update a menu item
+const updateMenuService = async (id, menuData) => {
+    const menuItem = await Menu.findById(id);
+    if (!menuItem) throw new Error('Menu item not found');
+
+    Object.assign(menuItem, menuData);
+    return await menuItem.save();
+};
+
+
 module.exports = {
     registerAdmin,
     loginAdmin,
@@ -82,4 +99,6 @@ module.exports = {
     updateAdminProfile,
     deleteAdminProfile,
     changeAdminPassword,
+    addMenuService,
+    updateMenuService
 };

@@ -1,41 +1,22 @@
-import React, { useState } from "react";
+import { useContext} from "react";
+import { cartContext } from "../store/cartContext";
 import { Container, Row, Col } from "reactstrap";
 import { Link } from "react-router-dom";
 import Banner from "../components/UI/Banner";
 import "..//styles/CartPage.css";
-import img1 from "../assets/Foods/B1.jpg";
-import img2 from "../assets/Foods/P2.jpg";
 
-// Sample data for cart items
-const initialCartItems = [
-  {
-    id: 1,
-    title: "Deluxe Burger",
-    image01: img1,
-    price: 12.99,
-    quantity: 2
-  },
-  {
-    id: 2,
-    title: "Pepperoni Pizza",
-    image01: img2,
-    price: 15.49,
-    quantity: 1
-  }
-];
 
 const CartPage = () => {
-  const [cartItems, setCartItems] = useState(initialCartItems);
 
-  const calculateTotalAmount = () => {
-    return cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
-  };
+  
+  const {calculateTotalAmount,deleteItem,cartItems,totalAmount} = useContext(cartContext)
 
-  const deleteItem = (id) => {
-    setCartItems(cartItems.filter(item => item.id !== id));
-  };
 
-  const totalAmount = calculateTotalAmount();
+  const checkingValue = useContext(cartContext)
+
+  console.log(checkingValue);
+
+
 
   return (
     <div>
@@ -44,6 +25,7 @@ const CartPage = () => {
         <Container>
           <Row>
             <Col lg="12">
+
               {cartItems.length === 0 ? (
                 <h5 className="text-center">Your cart is empty</h5>
               ) : (
@@ -57,6 +39,7 @@ const CartPage = () => {
                       <th>Delete</th>
                     </tr>
                   </thead>
+
                   <tbody>
                     {cartItems.map((item) => (
                       <Tr item={item} key={item.id} onDelete={deleteItem} />

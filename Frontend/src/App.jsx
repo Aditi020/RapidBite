@@ -1,3 +1,4 @@
+
 import React from 'react';
 import './App.css';
 import Header from './components/Header/Header.jsx';
@@ -7,24 +8,29 @@ import { CSSTransition, TransitionGroup } from 'react-transition-group'; // Impo
 import Routers from './Route/Route.jsx';
 import "./styles/PageTransition.css";
 
+import cartContextServiceProvider from './store/cartContext.jsx';
+
 function App() {
     const location = useLocation(); // Get the current location from react-router
 
     return (
-        <div>
-            <Header />
-            {/* Transition Group to wrap around the routes for transition effect */}
-            <TransitionGroup>
-                <CSSTransition
-                    key={location.key}
-                    timeout={900} // Set the duration for animation
-                    classNames="page" // Reference the page 
-                >
-                    <Routers />
-                </CSSTransition>
-            </TransitionGroup>
-            <Footer />
-        </div>
+
+        <cartContextServiceProvider>
+            <div>
+                <Header />
+                {/* Transition Group to wrap around the routes for transition effect */}
+                <TransitionGroup>
+                    <CSSTransition
+                        key={location.key}
+                        timeout={900} // Set the duration for animation
+                        classNames="page" // Reference the page 
+                    >
+                        <Routers />
+                    </CSSTransition>
+                </TransitionGroup>
+                <Footer />
+            </div>
+        </cartContextServiceProvider>
     );
 }
 

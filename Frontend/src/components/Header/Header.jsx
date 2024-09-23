@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import "../../styles/Header.css"
 // import logo from '../assets/';
 import { IoBasketOutline, IoPersonOutline, IoMenuOutline, IoCloseOutline } from 'react-icons/io5';
 import { Container } from 'reactstrap'; // Used Bootstrap here
-
+import { CartContext } from '../../store/cartContext';
 import Dropdown from 'react-bootstrap/Dropdown';
 
 export default function Header() {
@@ -15,6 +15,8 @@ export default function Header() {
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen); // Toggle mobile menu
     };
+
+    const { totalItemsInCart } = useContext(CartContext)
 
     return (
         <header className="header">
@@ -47,7 +49,7 @@ export default function Header() {
                     <div className="nav__right d-flex align-items-center gap-4">
                         <span className="cart__icon">
                             <IoBasketOutline />
-                            <span className="cart__badge">0</span>
+                            <span className="cart__badge">{totalItemsInCart}</span>
                         </span>
 
                         {/* <span className="user">
@@ -55,8 +57,6 @@ export default function Header() {
                                 <IoPersonOutline />
                             </Link>
                         </span> */}
-
-
                         <Dropdown>
                             <Dropdown.Toggle variant="Warning" id="dropdown-basic">
                                 <IoPersonOutline />
@@ -78,10 +78,6 @@ export default function Header() {
 
                             </Dropdown.Menu>
                         </Dropdown>
-
-
-
-
                         <span className="mobile__menu" onClick={toggleMenu}>
                             {isMenuOpen ? <IoCloseOutline /> : <IoMenuOutline />}
                         </span>

@@ -1,41 +1,17 @@
-import React, { useState } from "react";
+import { useContext } from "react";
 import { Container, Row, Col } from "reactstrap";
 import { Link } from "react-router-dom";
 import Banner from "../components/UI/Banner";
 import "..//styles/CartPage.css";
-import img1 from "../assets/Foods/B1.jpg";
-import img2 from "../assets/Foods/P2.jpg";
-
-// Sample data for cart items
-const initialCartItems = [
-  {
-    id: 1,
-    title: "Deluxe Burger",
-    image01: img1,
-    price: 12.99,
-    quantity: 2
-  },
-  {
-    id: 2,
-    title: "Pepperoni Pizza",
-    image01: img2,
-    price: 15.49,
-    quantity: 1
-  }
-];
+import { CartContext } from "../store/cartContext"
 
 const CartPage = () => {
-  const [cartItems, setCartItems] = useState(initialCartItems);
 
-  const calculateTotalAmount = () => {
-    return cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
-  };
-
-  const deleteItem = (id) => {
-    setCartItems(cartItems.filter(item => item.id !== id));
-  };
-
-  const totalAmount = calculateTotalAmount();
+  const {
+    cartItems,
+    deleteItem,
+    totalAmount,
+  } = useContext(CartContext)
 
   return (
     <div>
@@ -65,6 +41,7 @@ const CartPage = () => {
                 </table>
               )}
 
+              { }
               <div className="mt-4">
                 <h6>
                   Subtotal: $
@@ -80,6 +57,7 @@ const CartPage = () => {
                   </button>
                 </div>
               </div>
+
             </Col>
           </Row>
         </Container>

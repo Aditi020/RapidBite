@@ -1,40 +1,39 @@
 import React, { useState, useEffect } from "react";
 // import Banner from "../components/UI/Banner.jsx";
 import { Container, Row, Col, ListGroup, ListGroupItem } from "reactstrap";
-// Commenting out images as requested
-// import heroImg from "../assets/images/hero.png";
+
+import HeroImg1 from "../assets/Images/Hero1.png";
+import HeroImg2 from "../assets/Images/Hero2.png";
+import HeroImg3 from "../assets/Images/Hero3.jpg";
+
 import "../styles/Hero.css";
 import { Link } from "react-router-dom";
 import Category from "../components/UI/Category.jsx";
 import "../styles/Home.css";
-// import featureImg01 from "../assets/images/service-01.png";
-// import featureImg02 from "../assets/images/service-02.png";
-// import featureImg03 from "../assets/images/service-03.png";
+import featureImg01 from "../assets/Images/service-01.png";
+import featureImg02 from "../assets/Images/service-02.png";
+import featureImg03 from "../assets/Images/service-03.png";
 import products from "../assets/Products.jsx";
-// import foodCategoryImg01 from "../assets/images/hamburger.png";
-// import foodCategoryImg02 from "../assets/images/pizza.png";
-// import foodCategoryImg03 from "../assets/images/Sandwich.png";
+import foodCategoryImg01 from "../assets/Images/burger_icon.png";
+import foodCategoryImg02 from "../assets/Images/pizza_icon.png";
+import foodCategoryImg03 from "../assets/Images/Sandwhich.png";
 import ProductCard from "../components/UI/ProductCard.jsx";
-import whyImg from "../assets/Images/Main2.svg";
-// import networkImg from "../assets/images/network.png";
-// import TestimonialSlider from "../components/UI/Testimonial.jsx";
+import whyImg from "../assets/Images/Main1.svg";
+import testimonialImg from "../assets/Images/Testimonial.jpg";
 import TestSlider from "../components/UI/Testimonial.jsx";
 
 const featureData = [
     {
         title: "Quick Delivery",
-        // imgUrl: featureImg01,
-        desc: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minus, doloremque.",
+        desc: "Get your favorite meals delivered to your doorstep in no time .",
     },
     {
         title: "Super Dine In",
-        // imgUrl: featureImg02,
-        desc: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minus, doloremque.",
+        desc: "Skip the wait – order ahead and enjoy hassle-free pick-up that's ready when you are.",
     },
     {
         title: "Easy Pick Up",
-        // imgUrl: featureImg03,
-        desc: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minus, doloremque.",
+        desc: "Skip the wait – order ahead and enjoy hassle-free pick-up that's ready when you are.",
     },
 ];
 
@@ -76,22 +75,21 @@ const Home = () => {
     return (
         <>
 
-            {/* HERO Sect */}
+            {/* Hero Sect */}
             <section>
                 <Container>
                     <Row>
                         <Col lg="6" md="6">
-                            <div className="hero__content">
+                            <div className="Hero__content">
                                 <h5 className="mb-3">Easy way to make an order</h5>
-                                <h1 className="mb-4 hero__title">
+                                <h1 className="mb-4 Hero__title">
                                     <span>HUNGRY?</span> Just wait <br /> food at
                                     <span> your door</span>
                                 </h1>
                                 <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui
-                                    magni delectus tenetur autem, sint veritatis!
+                                    Craving something delicious? With RapidBite, your favorite meals are just a tap away—hot, fresh, and ready to delight!
                                 </p>
-                                <div className="hero__btns d-flex align-items-center gap-5 mt-4">
+                                <div className="Hero__btns d-flex align-items-center gap-5 mt-4">
                                     <button className="order__btn d-flex align-items-center justify-content-between">
                                         Order now <i className="ri-arrow-right-s-line"></i>
                                     </button>
@@ -99,7 +97,7 @@ const Home = () => {
                                         <Link to="/foods">See all foods</Link>
                                     </button>
                                 </div>
-                                <div className="hero__service d-flex align-items-center gap-5 mt-5">
+                                <div className="Hero__service d-flex align-items-center gap-5 mt-5">
                                     <p className="d-flex align-items-center gap-2">
                                         <span className="shipping__icon">
                                             <i className="ri-car-line"></i>
@@ -116,8 +114,10 @@ const Home = () => {
                             </div>
                         </Col>
                         <Col lg="6" md="6">
-                            <div className="hero__img">
-                                {/* <img src={heroImg} alt="hero-img" className="w-100" /> */}
+                            <div className="Hero__img-container">
+                                <img src={HeroImg1} alt="Hero 1" className="HeroImg fade" style={{ width:"100%", height: "180%", top:"-43%", right :"-5%", transform:"scale(0.8)", display:"flex", justifyContent:"centre" , alignItems:"center" , overflow:"hidden"}} />
+                                <img src={HeroImg2} alt="Hero 2" className="HeroImg fade" style={{ width: "100%", height: "120%", top: "-10%",  display: "flex",  right :"-5%", justifyContent:"centre" , alignItems:"center" , overflow:"hidden"}} />
+                                <img src={HeroImg3} alt="Hero 3" className="HeroImg fade" style={{ width: "100%", height: "120%", top: "-10%", display: "flex", right: "-5%", justifyContent:"centre" , alignItems:"center" , overflow:"hidden"}} />
                             </div>
                         </Col>
                     </Row>
@@ -134,33 +134,39 @@ const Home = () => {
                 <Container>
                     <Row>
                         <Col lg="12" className="text-center">
-                            <h5 className="feature__subtitle mb-4">What we serve</h5>
-                            <h2 className="feature__title">Just sit back at home</h2>
+                            <h5 className="feature__subtitle mb-4" style={{ fontSize: '24px'}}>What we serve</h5>
+                            <h2 className="feature__title">Got food cravings?</h2>
                             <h2 className="feature__title">
-                                we will <span>take care</span>
+                                Let us  <span>satisfy them</span>
                             </h2>
                             <p className="mb-1 mt-4 feature__text">
-                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor,
-                                officiis?
+                                with our delicious, freshly prepared meals delivered straight to your door.
                             </p>
                             <p className="feature__text">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                Aperiam, eius.
+                                Whether you’re in the mood for a quick snack or a hearty meal, RapidBite has got you covered .
+                                
                             </p>
                         </Col>
                         {featureData.map((item, index) => (
                             <Col lg="4" md="6" sm="6" key={index} className="mt-5">
                                 <div className="feature__item text-center px-5 py-3">
-                                    {/* <img
-                    src={item.imgUrl}
-                    alt="feature-img"
-                    className="w-25 mb-3"
-                  /> */}
+                                    <img
+                                        src={
+                                            index === 0
+                                                ? featureImg01
+                                                : index === 1
+                                                    ? featureImg02
+                                                    : featureImg03
+                                        }
+                                        alt={`feature-img-${index + 1}`}
+                                        className={`w-25 mb-3 feature-img-${index + 1}`}
+                                    />
                                     <h5 className="fw-bold mb-3">{item.title}</h5>
                                     <p>{item.desc}</p>
                                 </div>
                             </Col>
                         ))}
+
                     </Row>
                 </Container>
             </section>
@@ -183,7 +189,7 @@ const Home = () => {
                                         }`}
                                     onClick={() => setCategory("BURGER")}
                                 >
-                                    {/* <img src={foodCategoryImg01} alt="" /> */}
+                                    <img src={foodCategoryImg01} alt="" />
                                     Burger
                                 </button>
                                 <button
@@ -191,7 +197,7 @@ const Home = () => {
                                         }`}
                                     onClick={() => setCategory("PIZZA")}
                                 >
-                                    {/* <img src={foodCategoryImg02} alt="" /> */}
+                                    <img src={foodCategoryImg02} alt="" />
                                     Pizza
                                 </button>
                                 <button
@@ -199,7 +205,7 @@ const Home = () => {
                                         }`}
                                     onClick={() => setCategory("Sandwich")}
                                 >
-                                    {/* <img src={foodCategoryImg03} alt="" /> */}
+                                    <img src={foodCategoryImg03} alt="" />
                                     Sandwich
                                 </button>
                             </div>
@@ -316,7 +322,7 @@ const Home = () => {
                         </Col>
 
                         <Col lg="6" md="6">
-                            {/* <img src={testimonialImg} alt="Testimonials" className="w-100" /> */}
+                            <img src={testimonialImg} alt="Testimonials" className="w-100" />
                         </Col>
                     </Row>
                 </Container>

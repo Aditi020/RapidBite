@@ -18,23 +18,25 @@
 }
 
 .hero__btns button {
-    border: none;
+    border: none ; 
     outline: none;
     padding: 7px 20px;
     border-radius: 5px;
     cursor: pointer;
     font-weight: 600;
+    
 }
 
-.order__btn {
+.hero__btns .order__btn {
     background: #FFB534;
     color: #fff;
     transition: 0.3s;
 }
 
 .order__btn:hover {
-    background: #212245;
+    background: #b8582f;
 }
+
 /* 1FFB534 */
 /* 1ebaf60cc */
 .all__foods-btn {
@@ -58,4 +60,52 @@
     color: #fff;
     border-radius: 50%;
     font-weight: 500 !important;
+}
+
+.Hero__img-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.HeroImg {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    opacity: 0;
+    animation: fadeAnimation 6s infinite;
+}
+
+.HeroImg:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.HeroImg:nth-child(2) {
+    animation-delay: 2s;
+}
+
+.HeroImg:nth-child(3) {
+    animation-delay: 4s;
+}
+
+@keyframes fadeAnimation {
+    0% {
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    30% {
+        opacity: 1;
+    }
+
+    40% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0;
+    }
 }

@@ -1,5 +1,5 @@
-.Home-section{
-    margin-top:-20px;
+.Home-section {
+    margin-top: -20px;
 }
 
 .feature__subtitle {
@@ -17,6 +17,7 @@
 .feature__item p {
     color: #b65714;
 }
+
 /* 1ebaf60cc */
 /* 1FBC252 */
 /* 1FFB534 */
@@ -47,7 +48,8 @@
     color: #FFB534 !important;
 }
 
-.tasty__treat-title span, .testimonial_heading {
+.tasty__treat-title span,
+.testimonial_heading {
     color: #e87817;
 }
 
@@ -70,38 +72,38 @@
     color: #b65714;
 }
 
-.testimonial_slider_card{
+.testimonial_slider_card {
     display: flex;
     flex-direction: column;
 }
 
-.customer_feedback{
+.customer_feedback {
     margin: 50px 0 30px 0;
 }
 
-.customer_feedback p{
+.customer_feedback p {
     color: #b65714;
     line-height: 28px;
     text-align: left;
 }
 
-.customer_detail{
+.customer_detail {
     margin: 0 0 50px 0;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.customer_detail img{
+.customer_detail img {
     max-width: 50px;
     margin-right: 10px;
     border-radius: 50%;
 }
 
 .feature-img-1 {
-transform: scale(1.5);
-padding-top: 10px;
-padding-bottom: 10px;
+    transform: scale(1.5);
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .feature-img-1 {

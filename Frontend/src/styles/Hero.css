@@ -73,7 +73,7 @@
     width: 100%;
     height: auto;
     opacity: 0;
-    animation: fadeAnimation 6s infinite;
+    animation: fadeAnimation 12s infinite;
 }
 
 .HeroImg:nth-child(1) {
@@ -81,31 +81,44 @@
 }
 
 .HeroImg:nth-child(2) {
-    animation-delay: 2s;
+    animation-delay: 3s;
 }
 
 .HeroImg:nth-child(3) {
-    animation-delay: 4s;
+    animation-delay: 6s;
+}
+
+.HeroImg:nth-child(4) {
+    animation-delay: 9s;
 }
 
 @keyframes fadeAnimation {
-    0% {
-        opacity: 0;
-    }
 
-    10% {
+    0%,
+    20% {
         opacity: 1;
+        /* Fully visible for the first 1.6 seconds */
     }
 
-    30% {
+    25% {
         opacity: 1;
+        /* Still visible at 2 seconds */
     }
 
-    40% {
+    30%,
+    50% {
         opacity: 0;
+        /* Start fading out after 2 seconds */
     }
 
+    75% {
+        opacity: 0;
+        /* Completely invisible */
+    }
+
+    80%,
     100% {
         opacity: 0;
+        /* Ensures no overlap until next image */
     }
 }

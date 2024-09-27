@@ -2,9 +2,10 @@ import React, { useState, useEffect } from "react";
 // import Banner from "../components/UI/Banner.jsx";
 import { Container, Row, Col, ListGroup, ListGroupItem } from "reactstrap";
 
-import HeroImg1 from "../assets/Images/Hero1.png";
+import HeroImg1 from "../assets/Images/Hero1.jpg";
 import HeroImg2 from "../assets/Images/Hero2.png";
 import HeroImg3 from "../assets/Images/Hero3.jpg";
+import HeroImg4 from "../assets/Images/Hero4.png";
 
 import "../styles/Hero.css";
 import { Link } from "react-router-dom";
@@ -115,9 +116,10 @@ const Home = () => {
                         </Col>
                         <Col lg="6" md="6">
                             <div className="Hero__img-container">
-                                <img src={HeroImg1} alt="Hero 1" className="HeroImg fade" style={{ width:"100%", height: "180%", top:"-43%", right :"-5%", transform:"scale(0.8)", display:"flex", justifyContent:"centre" , alignItems:"center" , overflow:"hidden"}} />
-                                <img src={HeroImg2} alt="Hero 2" className="HeroImg fade" style={{ width: "100%", height: "120%", top: "-10%",  display: "flex",  right :"-5%", justifyContent:"centre" , alignItems:"center" , overflow:"hidden"}} />
-                                <img src={HeroImg3} alt="Hero 3" className="HeroImg fade" style={{ width: "100%", height: "120%", top: "-10%", display: "flex", right: "-5%", justifyContent:"centre" , alignItems:"center" , overflow:"hidden"}} />
+                                <img src={HeroImg1} alt="Hero 1" className="HeroImg fade" style={{ width: "100%", height: "140%", top: "-23%", right: "-5%", transform: "scale(0.8)", display: "flex", justifyContent: "centre", alignItems: "center", overflow: "hidden" }} />
+                                <img src={HeroImg2} alt="Hero 2" className="HeroImg fade" style={{ width:"100%", height: "180%", top:"-43%", right :"-5%", transform:"scale(0.8)", display:"flex", justifyContent:"centre" , alignItems:"center" , overflow:"hidden"}} />
+                                <img src={HeroImg3} alt="Hero 3" className="HeroImg fade" style={{ width: "100%", height: "120%", top: "-10%",  display: "flex",  right :"-5%", justifyContent:"centre" , alignItems:"center" , overflow:"hidden"}} />
+                                <img src={HeroImg4} alt="Hero 4" className="HeroImg fade" style={{ width: "100%", height: "120%", top: "-10%", display: "flex", right: "-5%", justifyContent:"centre" , alignItems:"center" , overflow:"hidden"}} />
                             </div>
                         </Col>
                     </Row>

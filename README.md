@@ -1,7 +1,6 @@
 ## Demo Video
-Here’s a demo video for the **Employee Register** project:
-
-[Download and Watch the Demo Video](./Frontend/src/assets/Untitled%20Video%20October%205,%202024%2011_38%20PM.webm)
+You can watch the demo video for the **Employee Register** project [here](https://drive.google.com/file/d/1J7J9n5Atykk0PBw4r0q-BB7NnG5V5JaO/view?usp=drive_link
+).
 
 
 # React + Vite

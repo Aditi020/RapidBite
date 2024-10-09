@@ -1,3 +1,8 @@
+## Demo Video
+Here’s a demo video for the **Employee Register** project:
+
+[Download and Watch the Demo Video](./Frontend/src/assets/Untitled%20Video%20October%205,%202024%2011_38%20PM.webm)
+
 
 # React + Vite
 

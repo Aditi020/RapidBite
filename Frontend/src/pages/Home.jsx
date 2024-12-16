@@ -90,10 +90,19 @@ const Home = () => {
                                 <p>
                                     Craving something delicious? With RapidBite, your favorite meals are just a tap away—hot, fresh, and ready to delight!
                                 </p>
-                                <div className="Hero__btns d-flex align-items-center gap-5 mt-4">
-                                    <button className="order__btn d-flex align-items-center justify-content-between">
+                                <div className="hero__btns d-flex align-items-center gap-5 mt-4">
+                                    <button
+                                        className="order__btn d-flex align-items-center justify-content-between"
+                                        onClick={() => {
+                                            const popularFoodsSection = document.getElementById("popular-foods");
+                                            if (popularFoodsSection) {
+                                                popularFoodsSection.scrollIntoView({ behavior: "smooth" });
+                                            }
+                                        }}
+                                    >
                                         Order now <i className="ri-arrow-right-s-line"></i>
                                     </button>
+
                                     <button className="all__foods-btn">
                                         <Link to="/foods">See all foods</Link>
                                     </button>
@@ -174,7 +183,7 @@ const Home = () => {
             </section>
             
             {/* Popular Food Section */}
-            <section>
+            <section id="popular-foods">
                 <Container>
                     <Row>
                         <Col lg="12" className="text-center">

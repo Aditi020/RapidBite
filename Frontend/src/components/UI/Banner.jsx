@@ -4,7 +4,7 @@ import "../../styles/Banner.css";
 
 const Banner= (props) => {
    
-    document.title = "Food ordering app - " + props.title;
+    document.title = "RapidBite - " + props.title;
 
     return (
         <section className="Banner">

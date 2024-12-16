@@ -48,10 +48,11 @@
     color: #FFB534;
 }
 
-.hero__service p {
+.Hero__service p {
     color: #212245;
     font-weight: 600;
     font-size: 0.9rem;
+    
 }
 
 .shipping__icon i {

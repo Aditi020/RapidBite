@@ -49,7 +49,7 @@ import S0103 from "./Foods/S1.jpg";
 import S0201 from "./Foods/S2.jpg";
 import S0202 from "./Foods/S2.jpg";
 import S0203 from "./Foods/S2.jpg";
-
+ 
 import S0301 from "./Foods/S3.jpg";
 import S0302 from "./Foods/S3.jpg";
 import S0303 from "./Foods/S3.jpg";

@@ -77,7 +77,7 @@ const Home = () => {
         <>
 
             {/* Hero Sect */}
-            <section>
+            <section > 
                 <Container>
                     <Row>
                         <Col lg="6" md="6">
@@ -191,7 +191,7 @@ const Home = () => {
                         </Col>
 
                         <Col lg="12">
-                            <div className="food__category d-flex align-items-center justify-content-center gap-4">
+                            <div className="food__category d-flex align-items-center justify-content-center gap-4" >
                                 <button className={`all__btn ${category === "ALL" ? "foodBtnActive" : ""}`} onClick={() => ("ALL")}>
                                     All
                                 </button>

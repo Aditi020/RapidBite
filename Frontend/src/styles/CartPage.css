@@ -1,3 +1,7 @@
+.table{
+border-radius: 20%;
+}
+
 th {
     text-align: center;
 }
@@ -39,6 +43,31 @@ th {
 .cart__subtotal {
     color: #e18103c3;
     font-size: 1.5rem;
+}
+
+/* Container for quantity controls */
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Center items horizontally */
+}
+
+/* No background or borders on the plus and minus signs */
+.quantity-btn {
+    font-size: 20px;
+    /* Size of the + and - symbols */
+    user-select: none;
+    cursor: pointer;
+   padding:0px 2px ;
+}
+
+/* Center the quantity number */
+.quantity {
+    font-size: 16px;
+    /* Size of the quantity number */
+    padding: 10px 10px;
+    /* Add spacing around the number */
 }
 
 

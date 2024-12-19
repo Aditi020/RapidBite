@@ -1,17 +1,25 @@
-import { useContext } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Container, Row, Col } from "reactstrap";
 import { Link } from "react-router-dom";
 import Banner from "../components/UI/Banner";
-import "..//styles/CartPage.css";
-import { CartContext } from "../store/cartContext"
+import { removeFromCart, updateQuantity } from "../store/cartSlice";  // Import updateQuantity action
+import "../styles/CartPage.css";
 
 const CartPage = () => {
+  const dispatch = useDispatch();
+  const { cartItems, totalAmount } = useSelector((state) => state.cart);
 
-  const {
-    cartItems,
-    deleteItem,
-    totalAmount,
-  } = useContext(CartContext)
+  const handleDeleteItem = (id) => {
+    dispatch(removeFromCart({ id }));
+  };
+
+  const handleIncrement = (id) => {
+    dispatch(updateQuantity({ id, type: "increment" }));
+  };
+
+  const handleDecrement = (id) => {
+    dispatch(updateQuantity({ id, type: "decrement" }));
+  };
 
   return (
     <div>
@@ -35,13 +43,18 @@ const CartPage = () => {
                   </thead>
                   <tbody>
                     {cartItems.map((item) => (
-                      <Tr item={item} key={item.id} onDelete={deleteItem} />
+                      <Tr
+                        item={item}
+                        key={item.id}
+                        onDelete={handleDeleteItem}
+                        onIncrement={handleIncrement}
+                        onDecrement={handleDecrement}
+                      />
                     ))}
                   </tbody>
                 </table>
               )}
 
-              { }
               <div className="mt-4">
                 <h6>
                   Subtotal: $
@@ -49,15 +62,18 @@ const CartPage = () => {
                 </h6>
                 <p>Taxes and shipping will calculate at checkout</p>
                 <div className="cart__page-btn">
-                  <button className="addTOCart__btn me-4">
-                    <Link to="/foods">Continue Shopping</Link>
-                  </button>
-                  <button className="addTOCart__btn">
-                    <Link to="/checkout">Proceed to checkout</Link>
-                  </button>
+                  <Link to="/foods">
+                    <button className="addTOCart__btn me-4">
+                      Continue Shopping
+                    </button>
+                  </Link>
+                  <Link to="/checkout">
+                    <button className="addTOCart__btn">
+                      Proceed to checkout
+                    </button>
+                  </Link>
                 </div>
               </div>
-
             </Col>
           </Row>
         </Container>
@@ -66,18 +82,30 @@ const CartPage = () => {
   );
 };
 
-const Tr = ({ item, onDelete }) => {
+const Tr = ({ item, onDelete, onIncrement, onDecrement }) => {
   const { id, image01, title, price, quantity } = item;
 
   return (
-    <tr>
+    <tr  style={{borderRadius:"80%"}}>
       <td className="text-center cart__img-box">
         <img src={image01} alt={title} />
       </td>
-      <td className="text-center">{title}</td>
-      <td className="text-center">${price.toFixed(2)}</td>
-      <td className="text-center">{quantity}</td>
-      <td className="text-center cart__item-del">
+      <td className="text-center" style={{ paddingTop: '20px' }}>{title}</td>
+      <td className="text-center" style={{ paddingTop: '20px' }}>${price.toFixed(2)}</td>
+      <td className="text-center ">
+        <div className="quantity-controls">
+          <span className="quantity-btn" onClick={() => onIncrement(id)}>
+            <i className="ri-add-line"></i>
+          </span>
+
+          <span className="quantity">{quantity}</span>
+
+          <span className="quantity-btn" onClick={() => onDecrement(id)}>
+            <i className="ri-subtract-line"></i>
+          </span>
+        </div>
+      </td>
+      <td className="text-center cart__item-del" style={{ paddingTop: '20px' }}>
         <i className="ri-delete-bin-line" onClick={() => onDelete(id)}></i>
       </td>
     </tr>

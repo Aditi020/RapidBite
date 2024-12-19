@@ -1,3 +1,7 @@
+/* Home{
+    padding-top: 120px;
+} */
+
 .Home-section {
     margin-top: -20px;
 }
@@ -109,6 +113,7 @@
 .feature-img-1 {
     margin-bottom: -5px;
 }
+
 
 @media only screen and (max-width: 768px) {
     .hero__content h5 {

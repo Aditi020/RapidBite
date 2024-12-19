@@ -1,7 +1,22 @@
 .header {
     background-color: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
     padding: 10px 0;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); 
+}
+
+.header.scrolled {
+    box-shadow: 0 4px 8px rgba(44, 44, 44, 0.2);
+}
+
+.header+* {
+    margin-top: 40px;
+    /* This adds 100px space below the header */
 }
 
 .nav__wrapper {
@@ -14,6 +29,10 @@
     text-decoration: none;
     color: #96621dfd;
     font-weight: 500;
+}
+
+.menu a:hover {
+    color: #eba084;
 }
 
 .active__menu {
@@ -34,12 +53,33 @@
 .cart__badge {
     position: absolute;
     top: -8px;
-    right: -8px;
-    background-color: #e79911;
-    color: white;
+    right: -6px;
+    background-color: #e89c19cd;
+    color: rgb(255, 255, 255);
     font-size: 12px;
-    border-radius: 50%;
-    padding: 2px 5px;
+    font-weight: 600;
+    border-radius: 50% 20% 50%;
+    padding: 2px 3px;
+    animation: badgeAnimation 0.5s ease;
+}
+
+@keyframes badgeAnimation {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.cart__badge.updated {
+    transform: scale(1.2);
+    color: #e18103c3;
 }
 
 .user a,

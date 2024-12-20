@@ -34,7 +34,7 @@
 .Redirect-Link{
     padding-top:15px ;
     cursor: pointer;
-    color: #3f80a7;
+    color: #a7563f;
 }
 
 /* Button styling */
@@ -62,8 +62,9 @@
     margin-left: 25%;
 }
 
+
 .create-account-link:hover {
-    color: rgb(24, 95, 92);
+    color: rgb(99, 48, 45);
     text-decoration: underline;
 }
 

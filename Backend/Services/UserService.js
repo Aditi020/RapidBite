@@ -9,11 +9,14 @@
 // 3. This causes Node.js to load one module before the other is fully defined, leading to incomplete exports(such as [object Undefined] for route callbacks).
  
 
+// UserService.js
 const jwt = require('jsonwebtoken');
+const Address = require('../models/AddressModel');
+const { User } = require('../models/UserModel');
+const Order = require('../models/OrderModel');
 
 // Register user service
 const registerUser = async ({ name, email, password }) => {
-    const { User } = require('../models/UserModel'); // Lazy loading
     const existingUser = await User.findOne({ email });
     if (existingUser) throw new Error('User already exists');
 
@@ -23,7 +26,6 @@ const registerUser = async ({ name, email, password }) => {
 
 // Login user service
 const loginUser = async (email, password) => {
-    const { User } = require('../models/UserModel'); // Lazy loading
     const user = await User.findOne({ email });
 
     if (!user) throw new Error("User does not exist");
@@ -35,7 +37,6 @@ const loginUser = async (email, password) => {
 
 // Get user profile
 const getUserProfile = async (userId) => {
-    const { User } = require('../models/UserModel'); // Lazy loading
     const user = await User.findById(userId);
     if (!user) throw new Error("User not found");
 
@@ -48,7 +49,6 @@ const getUserProfile = async (userId) => {
 
 // Update user profile
 const updateUserProfile = async (userId, { name, email }) => {
-    const { User } = require('../models/UserModel'); // Lazy loading
     const updatedUser = await User.findByIdAndUpdate(userId, { name, email }, { new: true, runValidators: true });
     if (!updatedUser) throw new Error("User not found");
 
@@ -57,7 +57,6 @@ const updateUserProfile = async (userId, { name, email }) => {
 
 // Delete user profile
 const deleteUserProfile = async (userId) => {
-    const { User } = require('../models/UserModel'); // Lazy loading
     const user = await User.findByIdAndDelete(userId);
     if (!user) throw new Error("User not found");
 
@@ -66,25 +65,37 @@ const deleteUserProfile = async (userId) => {
 
 // Change user password
 const changeUserPassword = async (userId, oldPassword, newPassword) => {
-    const { User } = require('../models/UserModel'); // Lazy loading
     const user = await User.findById(userId);
     if (!user) throw new Error("User not found");
     if (oldPassword !== user.password) throw new Error("Incorrect current password");
 
-    // Update with plain text password
     user.password = newPassword;
     return user.save();
 };
 
 // Get user orders
 const getUserOrders = async (userId) => {
-    const Order = require('../models/OrderModel'); // Lazy loading
     const orders = await Order.find({ userId });
     if (!orders.length) throw new Error("No orders found");
 
     return orders;
 };
 
+// Create user address
+const createAddress = async (userId, { country, city, postalCode, addressLine1, addressLine2 }) => {
+    const address = new Address({
+        userId,
+        country,
+        city,
+        postalCode,
+        addressLine1,
+        addressLine2
+    });
+
+    return await address.save();
+};
+
+// Export all services as a single object
 module.exports = {
     registerUser,
     loginUser,
@@ -92,5 +103,6 @@ module.exports = {
     updateUserProfile,
     deleteUserProfile,
     changeUserPassword,
-    getUserOrders
+    getUserOrders,
+    createAddress
 };

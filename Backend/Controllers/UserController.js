@@ -76,6 +76,50 @@ const getUserOrders = async (req, res) => {
     }
 };
 
+const userService = require('../Services/UserService'); // Lazy loading
+
+const createUserAddress = async (req, res) => {
+    try {
+        const { country, city, postalCode, addressLine1, addressLine2 } = req.body;
+        const userId = req.userId; // Extract userId from the middleware
+        const address = await userService.createAddress(userId, { country, city, postalCode, addressLine1, addressLine2 });
+
+        return res.status(201).json({
+            success: true,
+            message: "Address successfully added.",
+            data: address
+        });
+    } catch (err) {
+        console.error(err);
+        return res.status(500).json({
+            success: false,
+            message: err.message
+        });
+    }
+};
+
+const updateUserAddress = async (req, res) => {
+    try {
+        const { country, city, postalCode, addressLine1, addressLine2 } = req.body;
+        const userId = req.userId; // Extract userId from the middleware
+
+        const address = await userService.updateAddress(userId, { country, city, postalCode, addressLine1, addressLine2 });
+
+        if (!address) {
+            return res.status(404).json({ success: false, message: "Address not found." });
+        }
+
+        return res.status(200).json({ success: true, message: "Address updated.", data: address });
+    } catch (err) {
+        console.error(err);
+        return res.status(500).json({
+            success: false,
+            message: err.message
+        });
+    }
+};
+
+
 module.exports = {
     registerUser,
     loginUser,
@@ -83,5 +127,7 @@ module.exports = {
     updateUserProfile,
     deleteUserProfile,
     changeUserPassword,
-    getUserOrders
+    getUserOrders,
+    createUserAddress,
+    updateUserAddress
 };

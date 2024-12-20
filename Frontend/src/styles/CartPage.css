@@ -1,80 +1,145 @@
-.tabl{
-border-radius: 20%;
+/* Table styles */
+.table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 10px;
+    box-shadow: 2px 14px 18px rgba(0, 0, 0.1, 0.12);
+    overflow: hidden;
+    background-color: #fff;
 }
 
 th {
     text-align: center;
+    background-color: #e18103c3;
+    color: #fff;
+    padding: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 1rem;
+    padding-left: 20px;
+    /* Shift headings 20px to the right */
+}
+
+td {
+    text-align: center;
+    padding: 15px;
+    font-size: 0.95rem;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+td:last-child {
+    border-right: none;
 }
 
 .cart__img-box {
-    width: 80px;
+    width: 120px;
+    /* Increased image width to provide more space */
+    margin: 0 auto;
 }
 
 .cart__img-box img {
     width: 100%;
+    height: 100px;
+    /* Set a fixed height for better alignment */
+    object-fit: cover;
+    /* Ensures image scales properly */
+    border-radius: 5px;
+    transition: transform 0.3s ease;
 }
 
+.cart__img-box img:hover {
+    transform: scale(1.1);
+}
+
+/* Delete icon hover effect */
 .cart__item-del i {
+    color: #e18103c3;
+    font-size: 1.2rem;
     cursor: pointer;
+    transition: color 0.2s ease, transform 0.2s ease;
 }
 
+.cart__item-del i:hover {
+    color: #d9534f;
+    transform: scale(1.2);
+}
+
+/* Buttons for cart page */
 .cart__page-btn button {
     background-color: #e18103c3;
     border: none;
-    padding: 10px 15px;
+    padding: 10px 20px;
     color: #fff;
     cursor: pointer;
     text-transform: uppercase;
     font-weight: bold;
-    font-size: 0.70rem;
+    font-size: 0.8rem;
     border-radius: 7px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.cart__page-btn button a:hover {
-    color: #fff;
+.cart__page-btn button:hover {
+    background-color: #c76a01;
+    transform: translateY(-2px);
 }
 
-
-.cart__page-btn button a {
-    color: #fff;
-    text-decoration: none;
-}
-
-.cart__subtotal {
-    color: #e18103c3;
-    font-size: 1.5rem;
-}
-
-/* Container for quantity controls */
+/* Quantity controls */
 .quantity-controls {
     display: flex;
     align-items: center;
     justify-content: center;
-    /* Center items horizontally */
+    gap: 10px;
 }
 
-/* No background or borders on the plus and minus signs */
 .quantity-btn {
     font-size: 20px;
-    /* Size of the + and - symbols */
     user-select: none;
     cursor: pointer;
-   padding:0px 2px ;
+    padding: 5px 10px;
+    background-color: #f8f9fa;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
-/* Center the quantity number */
+.quantity-btn:hover {
+    background-color: #e18103c3;
+    color: #fff;
+    transform: scale(1.1);
+}
+
 .quantity {
     font-size: 16px;
-    /* Size of the quantity number */
-    padding: 10px 10px;
-    /* Add spacing around the number */
+    padding: 0 5px;
 }
 
+/* Subtotal styling */
+.cart__subtotal {
+    color: #e18103c3;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-top: 10px;
+}
 
+/* Responsive design for smaller screens */
 @media only screen and (max-width: 768px) {
+    .table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
 
     th,
     td {
         font-size: 0.8rem;
+        padding: 10px;
+    }
+
+    .quantity-controls {
+        gap: 5px;
     }
 }

@@ -63,7 +63,7 @@ const Login = () => {
                       Forgot your password?{" "}
                     </p>
                     <p className="form__text">
-                      <Link to="/register" className="form__link pointer">
+                      <Link to="/register" className="form__link pointer" >
                         New User?{" "}
                         Create an account
                       </Link>

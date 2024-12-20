@@ -9,6 +9,7 @@ const link = document.createElement("link");
 link.href = "https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css";
 link.rel = "stylesheet";
 
+
 import { Provider } from "react-redux";
 import store from "./store";
 document.head.appendChild(link);

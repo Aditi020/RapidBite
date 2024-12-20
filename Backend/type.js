@@ -43,10 +43,24 @@ const CheckoutSchema = zod.object({
     postalCode: zod.string().min(1, "Postal code is required"),
 });
 
+// schema for address eligibility
+const AddressEligibilitySchema = zod.object({
+    country: zod.string().min(1, "Country is required"),
+    city: zod.string().min(1, "City is required"),
+    postalCode: zod.string().min(1, "Postal code is required"),
+}).refine(data => {
+    const eligibleCountries = ["USA", "Canada", "UK"];
+    return eligibleCountries.includes(data.country);
+}, {
+    message: "Currently, we only ship to USA, Canada, and UK",
+    path: ["country"],
+});
+
 module.exports = {
     UserRegistrationSchema,
     UserLoginSchema,
     UserUpdateSchema,
     ContactFormSchema,
     CheckoutSchema,
-};
+    AddressEligibilitySchema, 
+}; 

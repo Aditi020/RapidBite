@@ -1,9 +1,10 @@
+// Checkout.jsx
 import React, { useState } from "react";
+import { useSelector } from "react-redux"; // Import useSelector for Redux state access
 import Banner from "../components/UI/Banner"; // Updated import for Banner component
 import { Container, Row, Col } from "reactstrap";
 import "../styles/Checkout.css";
-import CheckoutImgage from "../assets/Images/sv.avif";
-
+import CheckoutImage from "../assets/Images/sv.avif";
 
 const Checkout = () => {
   const [enterName, setEnterName] = useState("");
@@ -13,10 +14,10 @@ const Checkout = () => {
   const [enterCity, setEnterCity] = useState("");
   const [postalCode, setPostalCode] = useState("");
 
-  // Mocked cart total amount and shipping cost
-  const cartTotalAmount = 115;
-  const shippingCost = 30;
-  const totalAmount = cartTotalAmount + shippingCost;
+  // Access Redux cart state
+  const { totalAmount, cartItems } = useSelector((state) => state.cart);
+  const shippingCost = totalAmount > 0 ? 30 : 0; // Dynamically calculate shipping cost
+  const finalAmount = totalAmount + shippingCost; // Calculate total with shipping
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -26,10 +27,11 @@ const Checkout = () => {
       phone: enterNumber,
       country: enterCountry,
       city: enterCity,
-      postalCode: postalCode,
+      postalCode,
     };
 
     console.log("Shipping Information:", userShippingAddress);
+    console.log("Final Payment Amount:", finalAmount);
   };
 
   return (
@@ -90,27 +92,31 @@ const Checkout = () => {
                   />
                 </div>
                 <button type="submit" className="addTOCart__btn">
-                  Payment
+                  Pay ${finalAmount.toFixed(2)} {/* Display final amount dynamically */}
                 </button>
               </form>
             </Col>
             <Col lg="5" md="7">
               <div className="checkout__bill">
                 <h6 className="d-flex align-items-center justify-content-between mb-3">
-                  Subtotal: <span>${cartTotalAmount}</span>
+                  Subtotal: <span>${totalAmount.toFixed(2)}</span>
                 </h6>
                 <h6 className="d-flex align-items-center justify-content-between mb-3">
-                  Shipping: <span>${shippingCost}</span>
+                  Shipping: <span>${shippingCost.toFixed(2)}</span>
                 </h6>
                 <div className="checkout__total">
                   <h5 className="d-flex align-items-center justify-content-between">
-                    Total: <span>${totalAmount}</span>
+                    Total: <span>${finalAmount.toFixed(2)}</span>
                   </h5>
                 </div>
               </div>
               <Col lg="9" md="9">
                 <div className="Contact_img">
-                  <img src={CheckoutImgage} alt="Contact Information" className="w-100" />
+                  <img
+                    src={CheckoutImage}
+                    alt="Contact Information"
+                    className="w-100"
+                  />
                 </div>
               </Col>
             </Col>

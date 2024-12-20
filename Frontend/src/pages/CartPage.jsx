@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Container, Row, Col } from "reactstrap";
 import { Link } from "react-router-dom";
 import Banner from "../components/UI/Banner";
-import { removeFromCart, updateQuantity } from "../store/cartSlice";  // Import updateQuantity action
+import { removeFromCart, updateQuantity } from "../store/cartSlice"; // Import updateQuantity action
 import "../styles/CartPage.css";
 
 const CartPage = () => {
@@ -31,14 +31,14 @@ const CartPage = () => {
               {cartItems.length === 0 ? (
                 <h5 className="text-center">Your cart is empty</h5>
               ) : (
-                <table className="table table-bordered">
+                <table className="table">
                   <thead>
-                    <tr>
-                      <th>Image</th>
-                      <th>Product Title</th>
-                      <th>Price</th>
-                      <th>Quantity</th>
-                      <th>Delete</th>
+                    <tr >
+                        <th style={{ paddingLeft: "20px" }}>Image</th>
+                      <th style={{ paddingLeft: "110px" }}>Product Title</th>
+                      <th style={{ paddingLeft: "100px" }}>Price</th>
+                      <th style={{ paddingLeft: "100px" }}>Quantity</th>
+                      <th style={{ paddingLeft: "100px" }}>Delete</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -87,25 +87,23 @@ const Tr = ({ item, onDelete, onIncrement, onDecrement }) => {
 
   return (
     <tr>
-      <td className="text-center cart__img-box">
+      <td className="text-center cart__img-box" >
         <img src={image01} alt={title} />
       </td>
-      <td className="text-center" style={{ paddingTop: '20px' }}>{title}</td>
-      <td className="text-center" style={{ paddingTop: '20px' }}>${price.toFixed(2)}</td>
-      <td className="text-center ">
+      <td className="text-center" style={{ paddingTop: "20px" }}>{title}</td>
+      <td className="text-center" style={{ paddingTop: "20px" }}>${price.toFixed(2)}</td>
+      <td className="text-center">
         <div className="quantity-controls">
           <span className="quantity-btn" onClick={() => onIncrement(id)}>
             <i className="ri-add-line"></i>
           </span>
-
           <span className="quantity">{quantity}</span>
-
           <span className="quantity-btn" onClick={() => onDecrement(id)}>
             <i className="ri-subtract-line"></i>
           </span>
         </div>
       </td>
-      <td className="text-center cart__item-del" style={{ paddingTop: '20px' }}>
+      <td className="text-center cart__item-del" style={{ paddingTop: "20px" }}>
         <i className="ri-delete-bin-line" onClick={() => onDelete(id)}></i>
       </td>
     </tr>

@@ -1,22 +1,31 @@
 // ProductCard.jsx
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { addToCart } from "../../store/cartSlice";  // import the action
+import { addToCart } from "../../store/cartSlice"; // import the action
 import "../../styles/Productcard.css";
 
 const ProductCard = (props) => {
   const { id, title, image01, price } = props.item;
   const dispatch = useDispatch();
 
+  const [isAnimating, setIsAnimating] = useState(false);
+
   const handleAddToCart = () => {
-    dispatch(
-      addToCart({
-        id,
-        title,
-        image01,
-        price,
-      })
-    );
+    // Trigger animation
+    setIsAnimating(true);
+
+    // Add to cart after animation
+    setTimeout(() => {
+      dispatch(
+        addToCart({
+          id,
+          title,
+          image01,
+          price,
+        })
+      );
+      setIsAnimating(false); // Reset animation
+    }, 800); // Match animation duration
   };
 
   return (
@@ -28,7 +37,10 @@ const ProductCard = (props) => {
         <h5 className="Title">{title}</h5>
         <div className="d-flex align-items-center justify-content-between">
           <span className="product__price">${price}</span>
-          <button className="addTOCart__btn" onClick={handleAddToCart}>
+          <button
+            className={`addTOCart__btn ${isAnimating ? "animating" : ""}`}
+            onClick={handleAddToCart}
+          >
             Add to Cart
           </button>
         </div>

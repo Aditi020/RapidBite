@@ -1,6 +1,6 @@
 import { createContext, useState } from "react";
 import img1 from "../assets/Foods/B1.jpg";
-import img2 from "../assets/Foods/P2.jpg";
+import img2 from "../assets/Foods/P2.png";
 
 export let CartContext = createContext({
     cartItems: 0,

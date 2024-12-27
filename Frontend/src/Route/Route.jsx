@@ -9,6 +9,10 @@ import AdminLogin from "../pages/Admin_Login";
 import Register from "../pages/Registeration";
 import FoodDetails from "../pages/FoodDetails";
 import AddNewFoodItem from "../pages/AddNewFoodItem";
+import Profile from "../pages/Profile";
+import Settings from "../pages/Settings";
+// import Help from "../pages/Help";
+// import Orders from "../pages/Orders";
 
 // Custom hook to check if user is authenticated
 // const useAuth = () => {
@@ -33,6 +37,13 @@ const Routers = () => {
             <Route path="/add_food_form" element={<AddNewFoodItem />} />
             <Route path="/register" element={<Register />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/profile" element={<Profile />} />
+            {/* <Route path="/help" element={<Help />} /> */}
+            <Route path="/setting" element={<Settings />} />
+            {/* <Route path="/orders" element={<Orders />} /> */}
+
+
+
         </Routes>
     );
 };

@@ -27,7 +27,7 @@ function App() {
                         <Routers />
                     </CSSTransition>
                 </TransitionGroup>
-                <Footer />
+                <Footer classNames="Foot"/>
             </div>
         </CartContextServiceProvider>
     );

@@ -11,7 +11,8 @@ import FoodDetails from "../pages/FoodDetails";
 import AddNewFoodItem from "../pages/AddNewFoodItem";
 import Profile from "../pages/Profile";
 import Settings from "../pages/Settings";
-// import Help from "../pages/Help";
+import Help from "../pages/HelpAndSupport";
+// import Blog from "../pages/Blog";
 import Orders from "../pages/MyOrders";
 
 // Custom hook to check if user is authenticated
@@ -38,10 +39,10 @@ const Routers = () => {
             <Route path="/register" element={<Register />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/profile" element={<Profile />} />
-            {/* <Route path="/help" element={<Help />} /> */}
+            <Route path="/help" element={<Help />} />
             <Route path="/setting" element={<Settings />} />
             <Route path="/orders" element={<Orders />} />
-
+            {/* <Route path="/blog" element={<Blog />} /> */}
 
 
         </Routes>

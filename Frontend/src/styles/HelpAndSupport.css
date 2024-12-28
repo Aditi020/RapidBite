@@ -1,0 +1,124 @@
+/* HelpAndSupport.css */
+
+/* General Reset and Container */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f7f7f7;
+    color: #333;
+    line-height: 1.5;
+    /* height: 100%; */
+    /* width: 100%; */
+    margin: 6% 0 0 0!important;
+
+}
+
+.help-support-container {
+    max-width: 900px;
+    margin: 20px auto;
+    /* padding: 20px; */
+    background-color: #fff;
+    /* border: 1px solid #e0e0e0; */
+    padding-bottom: 5%;
+}
+
+/* Hero Banner */
+.hero-banner {
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 20px;
+border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.hero-banner h1 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.hero-banner p {
+    font-size: 1rem;
+    color: #666;
+}
+
+/* FAQ Section */
+.faq-section {
+    border-top: 1px solid #e0e0e0;
+    margin-top: 20px;
+border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    cursor: pointer;
+}
+
+.faq-item {
+    border-bottom: 1px solid #e0e0e0;
+    padding: 15px 0;
+}
+
+.faq-item:last-of-type {
+    border-bottom: none;
+}
+
+.faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.faq-question h3 {
+    font-size: 1rem;
+    font-weight: 500;
+    margin: 0;
+}
+
+.faq-arrow {
+    font-size: 1.2rem;
+    color: #666;
+    transition: transform 0.3s ease;
+}
+
+.faq-arrow.active {
+    transform: rotate(180deg);
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    font-size: 0.9rem;
+    color: #555;
+    margin-top: 10px;
+    line-height: 1.4;
+}
+
+.faq-answer.show {
+    max-height: 100px;
+    /* Adjust based on content length */
+}
+
+/* Utility Styles */
+@media (max-width: 600px) {
+    .help-support-container {
+        padding: 15px;
+    }
+
+    .hero-banner h1 {
+        font-size: 1.5rem;
+    }
+
+    .hero-banner p {
+        font-size: 0.9rem;
+    }
+
+    .faq-question h3 {
+        font-size: 0.95rem;
+    }
+}

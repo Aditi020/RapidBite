@@ -1,24 +1,36 @@
+/* Footer.css */
+
+/* General Footer Styles */
 .footer {
-    padding-top: 50px;
-    padding-bottom: 30px;
     background: #fdf5e4;
+    padding-top: 40px;
+    /* Reduced padding */
+    padding-bottom: 30px;
+    /* Reduced padding */
+
 }
 
 .footer__logo img {
-    width: calc(100% - 80%);
-    margin-bottom: 5px;
+    width: 60%;
+    /* Adjusted logo width */
+    margin-bottom: 10px;
 }
 
 .footer__logo h5 {
     font-weight: 600;
     font-size: 1rem;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
+    /* Reduced margin */
 }
 
 .footer__logo p {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
+    /* Reduced font size */
     color: #333;
-    line-height: 28px;
+    line-height: 1.5;
+    /* Adjusted line height */
+    margin-bottom: 10px;
+    /* Reduced spacing */
 }
 
 .delivery__time-item {
@@ -27,34 +39,50 @@
 
 .delivery__time-item span {
     font-weight: 600;
-    font-size: 1rem;
+    font-size: 0.9rem;
+    /* Slightly smaller font */
     color: #212245;
 }
 
 .delivery__time-item p {
+    font-size: 0.85rem;
+    /* Reduced font size */
     color: #212245;
+    margin-bottom: 5px;
+    /* Reduced spacing */
 }
 
 .footer__title {
-    font-size: 1.1rem;
+    font-size: 1rem;
+    /* Reduced title size */
     color: #212245;
     font-weight: 600;
+    margin-bottom: 10px;
+    /* Reduced margin */
 }
 
 .newsletter {
-    padding: 5px;
+    padding: 5px 10px;
+    /* Reduced padding */
     border: 1px solid #212245;
     border-radius: 5px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     cursor: pointer;
+    margin-top: 10px;
+    /* Reduced margin */
 }
 
 .newsletter input {
     background: transparent;
     border: none;
     outline: none;
+    font-size: 0.9rem;
+    /* Adjusted font size */
+    flex: 1;
+    padding: 5px;
+    /* Reduced padding */
 }
 
 .newsletter input:focus {
@@ -62,14 +90,12 @@
 }
 
 .newsletter span {
-    background: #e2932ba7;
-    padding-left: 15px;
-    padding-right: 15px;
+    background: #e2932b;
+    padding: 5px 10px;
+    /* Adjusted padding */
     border-radius: 5px;
-    position: relative;
-    align-self: center;
     display: flex;
-
+    align-items: center;
 }
 
 .newsletter span i {
@@ -81,103 +107,55 @@
 }
 
 .social__links span i {
-    padding: 8px;
-    background: #e2932ba7;
-    color: #ffffff;
+    padding: 6px;
+    /* Reduced icon padding */
+    background: #e2932b;
+    color: #fff;
     border-radius: 50%;
     line-height: 1;
-    justify-content: center;
     text-decoration: none;
     display: inline-block;
+    font-size: 0.9rem;
+    /* Adjusted icon size */
+}
+
+.social__links p {
+    margin: 0;
+    font-size: 0.9rem;
+    /* Reduced font size */
 }
 
 .mt-5 {
     display: flex;
     justify-content: center;
+    margin-top: 15px;
+    /* Reduced margin */
 }
 
-@media only screen and (max-width: 1350) {
-    .newsletter input {
-        padding: 7px;
-        font-size: 0.7rem;
-        /* margin-right: 0px !important; */
-    }
-
-    .newsletter send {
-        background: #e2932ba7;
-        padding-left: 5px;
-        padding-right: 5px;
-        border-radius: 5px;
-        position: relative;
-        align-self: center;
-        display: flex;
-    }
-}
-
-@media only screen and (min-width: 1350) {
-    .newsletter input {
-        padding: 7px;
-        font-size: 0.7rem;
-        /* margin-right: 0px !important; */
-    }
-
-    .newsletter send {
-        background: #e2932ba7;
-        padding-left: 5px;
-        padding-right: 5px;
-        border-radius: 5px;
-        position: relative;
-        align-self: center;
-        display: flex;
-    }
-}
-
-@media only screen and (min-width: 992px) {
-    .newsletter input {
-        padding: 7px;
-        font-size: 0.7rem;
-    }
-
-    .newsletter span {
-        padding: 5px 15px;
-        font-size: 0.7rem;
-        /* padding-left: 5px;
-                padding-right: 5px; */
-    }
-}
-
-@media only screen and (max-width: 992px) {
-    .newsletter input {
-        padding: 7px;
-        font-size: 0.7rem;
-    }
-
-    .newsletter span {
-        padding: 5px 15px;
-        font-size: 0.7rem;
-        /* padding-left: 5px;
-                padding-right: 5px; */
-    }
-}
-
+/* Responsive Design */
 @media only screen and (max-width: 768px) {
     .footer__title {
-        font-size: 0.8rem;
+        font-size: 0.85rem;
+        /* Reduced title size for small screens */
     }
 
     .delivery__time-item span {
-        font-size: 0.8rem;
+        font-size: 0.85rem;
     }
 
     .delivery__time-item p {
-        font-size: 0.7rem;
-        margin-bottom: 0;
+        font-size: 0.8rem;
+        margin-bottom: 5px;
     }
-}
 
-@media only screen and (max-width: 576px) {
-    .copyright__text {
-        text-align: center;
+    .newsletter input {
+        font-size: 0.8rem;
+        padding: 5px;
+    }
+
+    .newsletter span {
+        padding: 5px;
+        font-size: 0.8rem;
     }
 
     .social__links p {
@@ -185,10 +163,24 @@
     }
 
     .social__links span {
-        padding: 4px;
+        padding: 5px;
     }
 
     .social__links span a {
-        font-size: 0.7rem;
+        font-size: 0.8rem;
+    }
+}
+
+@media only screen and (max-width: 576px) {
+    .footer__logo h5 {
+        font-size: 0.9rem;
+    }
+
+    .footer__logo p {
+        font-size: 0.8rem;
+    }
+
+    .social__links p {
+        text-align: center;
     }
 }

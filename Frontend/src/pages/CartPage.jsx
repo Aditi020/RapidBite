@@ -86,7 +86,7 @@ const Tr = ({ item, onDelete, onIncrement, onDecrement }) => {
   const { id, image01, title, price, quantity } = item;
 
   return (
-    <tr>
+    <tr className="Tr">
       <td className="text-center cart__img-box" >
         <img src={image01} alt={title} />
       </td>

@@ -6,7 +6,9 @@
     background-size: cover;
     background-position: center;
     padding: 80px 0px;
-    /* top: -10px; */
+    margin-top: -1.5%;
+    margin-bottom: 3%;
+
 }
 
 .text-white {

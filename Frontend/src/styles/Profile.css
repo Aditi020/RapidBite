@@ -1,134 +1,153 @@
-/* Styles for the profile page */
-.list-group-item.active {
-    background: #ffc107;
-    /* Bootstrap's warning color */
+/* General Styles for Profile Page */
+.profile-section {
+    padding: 20px 0;
+    height: 100%;
+    
+}
+
+.profile-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar-{
+    height: 550px;
 }
 
 
-.top-status ul {
-    list-style: none;
+.profile-header {
     display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    padding: 0;
-    margin: 0;
-}
-
-.top-status ul li {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    background: #fff;
-    display: flex;
-    justify-content: center;
     flex-direction: column;
     align-items: center;
-    border: 8px solid #ddd;
-    box-shadow: 1px 1px 10px 1px #ddd inset;
-    margin: 10px 5px;
-}
-
-.top-status ul li.active {
-    border-color: #06C167;
-    /* Green */
-    box-shadow: 1px 1px 20px 1px #ffc107 inset;
-}
-
-ul.timeline {
-    list-style-type: none;
-    position: relative;
-}
-
-ul.timeline:before {
-    content: ' ';
-    background: #d4d9df;
-    display: inline-block;
-    position: absolute;
-    left: 29px;
-    width: 2px;
-    height: 100%;
-    z-index: 400;
-}
-
-ul.timeline>li {
-    margin: 20px 0;
-    padding-left: 30px;
-}
-
-ul.timeline>li:before {
-    content: '\2713';
-    background: #fff;
-    display: inline-block;
-    position: absolute;
-    border-radius: 50%;
-    border: 0;
-    left: 5px;
-    width: 50px;
-    height: 50px;
-    z-index: 400;
     text-align: center;
-    line-height: 50px;
-    color: #d4d9df;
-    font-size: 24px;
-    border: 2px solid #007bff;
-    /* Blue */
 }
 
-ul.timeline>li.active:before {
-    background: #28a745;
-    /* Green */
-    color: #fff;
-    font-size: 30px;
+.profile-image {
+    border-radius: 50%;
+    border: 4px solid #ffc107;
+    padding: 5px;
+    width: 100px;
 }
 
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
+.profile-details h4 {
+    margin: 10px 0;
+}
+
+.section-list {
+
+    margin: 20px;
+}
+
+.card{
+    /* margin-top: 5%; */
+    margin-bottom: 10%;
+}
+
+.section-button {
     width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.4);
+    padding: 10px 15px;
+    text-align: left;
+    background-color: #eaeef3e4;
+    box-shadow: 8px  rgba(0, 0, 0, 0.1);
+    border: none;
+    font-size: 1rem;
+    /* color: #555; */
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    /* justify-content: center; */
+    /* align-items: center; */
 }
 
-.modal-content {
-    background-color: #fefefe;
-    margin: 15% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 30%;
+.section-button:hover {
+    background-color: #dce6f0;
 }
 
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
+.section-button.active {
+    background-color: #93b7bd;
+    color: white;
     font-weight: bold;
 }
 
-.close:hover,
-.close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
+/* Profile Details */
+.profile-info-card {
+    /* margin-top: 20px; */
 }
 
+.profile-info-list {
+    list-style: none;
+    padding: 0;
+}
+
+.profile-info-list li {
+    padding: 8px 0;
+}
+
+/* Order Section */
+.order-list {
+    /* margin-top: 20px; */
+}
+
+.order-items {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.order-header {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.order-items {
+    list-style: none;
+    padding: 0;
+}
+
+.order-item-detail {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 20px;
+}
+
+.item-image {
+    width: 60px;
+    height: 60px;
+    margin-right: 15px;
+    object-fit: cover;
+}
+
+.item-details p {
+    margin: 0;
+}
+
+/* Address Book */
 .address-item {
     border-bottom: 1px solid #ddd;
-    padding-bottom: 10px;
-    margin-bottom: 10px;
+    padding: 15px 0;
 }
 
-.main_flex_div {
-    margin-bottom: 10px;
+.modify-address-btn {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
-.inner_flex_div {
-    margin-right: 10px;
+.modify-address-btn:hover {
+    background-color: #218838;
 }
 
-.button_div {
-    justify-content: space-between;
+.no-orders {
+    color: #888;
+    text-align: center;
 }

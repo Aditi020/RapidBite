@@ -12,7 +12,7 @@ import AddNewFoodItem from "../pages/AddNewFoodItem";
 import Profile from "../pages/Profile";
 import Settings from "../pages/Settings";
 import Help from "../pages/HelpAndSupport";
-// import Blog from "../pages/Blog";
+import Blog from "../pages/Blog";
 import Orders from "../pages/MyOrders";
 
 // Custom hook to check if user is authenticated
@@ -42,7 +42,7 @@ const Routers = () => {
             <Route path="/help" element={<Help />} />
             <Route path="/setting" element={<Settings />} />
             <Route path="/orders" element={<Orders />} />
-            {/* <Route path="/blog" element={<Blog />} /> */}
+            <Route path="/blog" element={<Blog />} />
 
 
         </Routes>

@@ -1,25 +1,40 @@
-import React, { useState } from "react";
-import Banner from "../components/UI/Banner"; // Updated import
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import Banner from "../components/UI/Banner";
 import { Container, Row, Col } from "reactstrap";
-import products from "../assets/Products.jsx";
 import ProductCard from "../components/UI/ProductCard";
-import ReactPaginate from 'react-paginate';
-import "../styles/AllFood.css"; // Import updated CSS
+import ReactPaginate from "react-paginate";
+import "../styles/AllFood.css";
 
 const AllFoods = () => {
+  const [products, setProducts] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [pageNumber, setPageNumber] = useState(0);
-  const [sortOption, setSortOption] = useState("Default"); // New state for sorting
+  const [sortOption, setSortOption] = useState("Default");
 
-  // Filter and sort products based on search term and sort option
+  const productPerPage = 12;
+
+  // Fetch products from Spoonacular API
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const response = await axios.get(
+          `https://api.spoonacular.com/food/products/search?query=all&number=100&apiKey=6ea77396bafc4d5cb38e19597ffe5000`
+        );
+        setProducts(response.data.products || []);
+      } catch (error) {
+        console.error("Error fetching products:", error);
+      }
+    };
+
+    fetchProducts();
+  }, []);
+
+  // Filter and sort products
   const sortedProducts = () => {
     let filteredProducts = products.filter((item) => {
-      if (searchTerm === "") {
-        return item;
-      }
-      if (item.title.toLowerCase().includes(searchTerm.toLowerCase())) {
-        return item;
-      }
+      if (searchTerm === "") return item;
+      if (item.title.toLowerCase().includes(searchTerm.toLowerCase())) return item;
       return null;
     });
 
@@ -31,10 +46,10 @@ const AllFoods = () => {
         filteredProducts.sort((a, b) => b.title.localeCompare(a.title));
         break;
       case "high-price":
-        filteredProducts.sort((a, b) => b.price - a.price);
+        filteredProducts.sort((a, b) => (b.price || 0) - (a.price || 0));
         break;
       case "low-price":
-        filteredProducts.sort((a, b) => a.price - b.price);
+        filteredProducts.sort((a, b) => (a.price || 0) - (b.price || 0));
         break;
       default:
         break;
@@ -45,7 +60,6 @@ const AllFoods = () => {
 
   const searchedProduct = sortedProducts();
 
-  const productPerPage = 12;
   const visitedPage = pageNumber * productPerPage;
   const displayPage = searchedProduct.slice(
     visitedPage,

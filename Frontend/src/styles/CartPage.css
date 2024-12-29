@@ -9,6 +9,8 @@
     background-color: #fff;
 }
 
+
+
 th {
     text-align: center;
     background-color: #e18103c3;
@@ -77,6 +79,7 @@ td:last-child {
     font-size: 0.8rem;
     border-radius: 7px;
     transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-bottom: 5%;
 }
 
 .cart__page-btn button:hover {
@@ -104,6 +107,7 @@ td:last-child {
     justify-content: center;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     transition: background-color 0.2s ease, transform 0.2s ease;
+        /* margin-bottom: 2%; */
 }
 
 .quantity-btn:hover {
@@ -123,6 +127,7 @@ td:last-child {
     font-size: 1.5rem;
     font-weight: bold;
     margin-top: 10px;
+
 }
 
 /* Responsive design for smaller screens */

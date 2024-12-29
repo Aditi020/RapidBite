@@ -1,0 +1,137 @@
+/* Blog Section Styles */
+.blog {
+    padding: 2rem 5%;
+    background: #f9f9f9;
+    color: #333;
+    font-family: "Poppins", sans-serif;
+}
+
+.blog-header {
+    text-align: center;
+    margin-bottom: 2rem;
+    margin-top: 10px;
+}
+
+.blog-header h1 {
+    font-size: 1.8rem;
+    color: #614015;
+}
+
+.blog-header p {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 60px;
+}
+
+/* Blog Grid */
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    /* Increased card size */
+    gap: 2rem;
+}
+
+/* Blog Card */
+.blog-card {
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.blog-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+.blog-card-image {
+    width: 100%;
+    height: 220px;
+    /* Increased height for larger images */
+    object-fit: cover;
+}
+
+.blog-card-content {
+    padding: 1.2rem;
+    /* Slightly increased padding */
+}
+
+.blog-card-title {
+    font-size: 1.6rem;
+    /* Increased title size */
+    margin: 0.5rem 0;
+    color: #333;
+}
+
+.blog-card-description {
+    font-size: 1rem;
+    color: #777;
+    margin-bottom: 1.2rem;
+    /* Increased spacing for better readability */
+}
+
+.blog-card-footer {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    color: #999;
+    margin-bottom: 1rem;
+}
+
+.read-more-btn {
+    background: #96621d;
+    color: #fff;
+    border: none;
+    padding: 0.6rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.3s ease;
+}
+
+.read-more-btn:hover {
+    background: #774f1b;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .blog-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .blog-header h1 {
+        font-size: 2rem;
+    }
+
+    .blog-card-content {
+        padding: 1rem;
+    }
+
+    .blog-card-title {
+        font-size: 1.4rem;
+    }
+
+    .blog-card-description {
+        font-size: 0.95rem;
+    }
+}
+
+/* Animations */
+.blog-card {
+    animation: fadeInUp 0.5s ease both;
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

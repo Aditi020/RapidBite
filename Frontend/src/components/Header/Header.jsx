@@ -9,6 +9,7 @@ export default function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
     const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false); // Profile dropdown state
+    const [isLoggedIn, setIsLoggedIn] = useState(true); // Mock login state
     const navigate = useNavigate();
 
     const toggleMenu = () => {
@@ -38,12 +39,12 @@ export default function Header() {
     }, []);
 
     return (
-        <header className={`header ${isScrolled ? 'scrolled' : ''}`} >
+        <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
             <Container>
                 <div className="nav__wrapper d-flex align-items-center justify-content-between">
                     {/* Logo Section */}
                     <div className="logo d-flex align-items-center" onClick={() => navigate("/home")}>
-                        <h5 style={{ color: "#e18103c3" }}>RapidBite</h5>
+                        <h5 style={{ color: "#e18103c3", cursor: "pointer" }}>RapidBite</h5>
                     </div>
 
                     {/* Navigation Links */}
@@ -79,22 +80,36 @@ export default function Header() {
 
                         {/* User Profile Dropdown */}
                         <div className="profile" onClick={toggleProfileMenu}>
-                            <div className="user">
-                                <h6>Katherine Cooper</h6>
-                                {/* <p>@probablykat66</p> */}
-                            </div>
-                            <div className="img-box">
-                                <img src="https://i.postimg.cc/BvNYhMHS/user-img.jpg" alt="User Avatar" />
-                            </div>
-                            <div className={`profile-menu ${isProfileMenuOpen ? 'active' : ''}`}>
-                                <ul>
-                                    <li><Link to="/profile"><i className="ph-bold ph-user"></i>&nbsp;Profile</Link></li>
-                                    <li><Link to="/inbox"><i className="ph-bold ph-envelope-simple"></i>&nbsp;Inbox</Link></li>
-                                    <li><Link to="/setting"><i className="ph-bold ph-gear-six"></i>&nbsp;Settings</Link></li>
-                                    <li><Link to="/help"><i className="ph-bold ph-question"></i>&nbsp;Help</Link></li>
-                                    <li><Link to="/signin"><i className="ph-bold ph-sign-out"></i>&nbsp;Sign Out</Link></li>
-                                </ul>
-                            </div>
+                            {isLoggedIn ? (
+                                <>
+                                    <div className="user">
+                                        <h6>Katherine Cooper</h6>
+                                        {/* <p>@probablykat66</p> */}
+                                    </div>
+                                    <div className="img-box">
+                                        <img src="https://i.postimg.cc/BvNYhMHS/user-img.jpg" alt="User Avatar" />
+                                    </div>
+                                    <div className={`profile-menu ${isProfileMenuOpen ? 'active' : ''}`}>
+                                        <ul>
+                                            <li><Link to="/profile"><i className="ph-bold ph-user"></i>&nbsp;Profile</Link></li>
+                                            <li><Link to="/orders"><i className="ph-bold ph-envelope-simple"></i>&nbsp;My Orders</Link></li>
+                                            <li><Link to="/setting"><i className="ph-bold ph-gear-six"></i>&nbsp;Settings</Link></li>
+                                            <li><Link to="/help"><i className="ph-bold ph-question"></i>&nbsp;Help</Link></li>
+                                            <li><Link to="/signin"><i className="ph-bold ph-sign-out"></i>&nbsp;Sign Out</Link></li>
+                                        </ul>
+                                    </div>
+                                </>
+                            ) : (
+                                <>
+                                    <i className="ri-user-3-line" style={{ fontSize: "20px", cursor: "pointer" }}></i>
+                                    <div className={`profile-menu ${isProfileMenuOpen ? 'active' : ''}`}>
+                                        <ul>
+                                            <li><Link to="/signin"><i className="ph-bold ph-sign-in"></i>&nbsp;Sign In</Link></li>
+                                            <li><Link to="/help"><i className="ph-bold ph-question"></i>&nbsp;Help</Link></li>
+                                        </ul>
+                                    </div>
+                                </>
+                            )}
                         </div>
 
                         {/* Mobile Menu Icon */}

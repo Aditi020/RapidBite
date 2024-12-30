@@ -52,7 +52,7 @@ const Contact = () => {
     <div>
       <Banner title="Contact Us" />
       <section>
-        <Container>
+        <Container style={{marginBottom:"3%"}}>
           <Row>
             <Col lg="6" md="6">
               <h6 className="mb-4" style={{ color:"#cf8625e8" , fontWeight:700 , fontSize:25 }}>Contact Information</h6>

@@ -1,7 +1,7 @@
 .form {
     font-size: var(--bs-body-font-size);
     font-weight: var(--bs-body-font-weight);
-    line-height: var(--bs-body-line-height);
+    line-height: var(--bs-body-line-height); 
     color: var(--bs-body-color);
     background: #fcc564df;
     padding: 15px;
@@ -20,9 +20,66 @@
     /* margin-top: 1rem; */
 }
 
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    /* Space buttons evenly */
+    margin-top: 1rem;
+}
+
+.button-container button {
+    flex: 1;
+    /* Make buttons take equal width */
+    margin: 0 0.5rem;
+    /* Add spacing between buttons */
+}
+
 .Redirect-Link:hover {
     color: rgb(24, 95, 92);
     text-decoration: underline;
+}
+
+.form__title {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.form__error {
+    color: red;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.form__group {
+    margin-bottom: 1rem;
+}
+
+.form__input {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 0.25rem;
+}
+
+.form__text {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.RegistrationImg {
+    width: 90%;
+    margin-top: -15%;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+}
+
+.button-container button {
+    flex: 1;
+    margin: 0 0.5rem;
 }
 
 /* Button styling */

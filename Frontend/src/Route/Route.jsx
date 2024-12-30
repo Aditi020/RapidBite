@@ -14,6 +14,7 @@ import Settings from "../pages/Settings";
 import Help from "../pages/HelpAndSupport";
 import Blog from "../pages/Blog";
 import Orders from "../pages/MyOrders";
+import ForgotPsw from "../pages/ForgotPsw";
 
 // Custom hook to check if user is authenticated
 // const useAuth = () => {
@@ -33,18 +34,17 @@ const Routers = () => {
             <Route path="/cart" element={<Cart />} />
             <Route path="/checkout" element={<Checkout />} />
             {/* <Route path="/checkout" element={isAuthenticated ? <Checkout /> : <Navigate to="/user_login" />} /> */}
-            <Route path="/user_login" element={<Login />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signin" element={<Register />} />
             <Route path="/admin_login" element={<AdminLogin />} />
             <Route path="/add_food_form" element={<AddNewFoodItem />} />
-            <Route path="/register" element={<Register />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/help" element={<Help />} />
             <Route path="/setting" element={<Settings />} />
             <Route path="/orders" element={<Orders />} />
             <Route path="/blog" element={<Blog />} />
-
-
+            <Route path="/forgotpsw" element={<ForgotPsw />} />
         </Routes>
     );
 };

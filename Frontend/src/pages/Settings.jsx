@@ -14,6 +14,9 @@ const Settings = () => {
     const [newAddress, setNewAddress] = useState(""); // Store the input for a new address
     const [editingIndex, setEditingIndex] = useState(null); // Track if we are editing an address
     const [editedAddress, setEditedAddress] = useState(""); // Store the edited address
+    const [dob, setDob] = useState(""); //Add DOB State
+    const [gender, setGender] = useState(""); //Add Gender State
+    const [contact, setContact] = useState(""); //Add Contact State
 
     // Check if the user is logged in by checking for JWT token in localStorage
     useEffect(() => {
@@ -25,6 +28,7 @@ const Settings = () => {
         }
     }, []); // Only run this effect once on component mount
 
+    
     const handleFileChange = (event) => {
         const file = event.target.files[0];
         if (file && file.type.match("image.*")) {
@@ -61,6 +65,20 @@ const Settings = () => {
                 theme: "colored"
             });
         }, 2000); // Simulate a 2-second delay
+    };
+
+    const handleProfileSave = (event) => {
+        event.preventDefault(); // Prevent default form submission
+
+        toast.success("Profile updated successfully!", {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            draggable: true,
+            progress: undefined,
+            theme: "colored"
+        });
     };
 
     // ADDRESS MANAGEMENT FUNCTIONS:
@@ -138,14 +156,37 @@ const Settings = () => {
         switch (activeTab) {
             case "profile":
                 return (
-                    <form className="settings-form">
+                    <form className="settings-form" onSubmit={handleProfileSave}>
                         <div className="form-group">
                             <label htmlFor="name">Name</label>
-                            <input type="text" id="name" placeholder="Enter your name" />
+                            <input type="text" id="name" placeholder="Enter your name" required /> {/* Added required */}
                         </div>
                         <div className="form-group">
                             <label htmlFor="email">Email</label>
-                            <input type="email" id="email" placeholder="Enter your email" />
+                            <input type="email" id="email" placeholder="Enter your email" required /> {/* Added required */}
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="dob">Date of Birth</label>
+                            <input type="date" id="dob" value={dob} onChange={(e) => setDob(e.target.value)} required /> {/* Added required */}
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="gender">Gender</label>
+                            <select id="gender" value={gender} onChange={(e) => setGender(e.target.value)} style={{
+                                padding: '8px',
+                                borderRadius: '4px',
+                                border: '1px solid #ccc',
+                                width: '100%',
+                                boxSizing: 'border-box'
+                            }}>
+                                <option value="">Select Gender</option>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="contact">Contact</label>
+                            <input type="tel" id="contact" value={contact} onChange={(e) => setContact(e.target.value)} placeholder="Enter your contact number" pattern="[0-9]+" required /> {/* Added pattern and required */}
                         </div>
                         <div className="form-group">
                             <label htmlFor="photo">Photo</label>
@@ -154,7 +195,7 @@ const Settings = () => {
                                     {photoPreview ? (
                                         <img src={photoPreview} alt="Profile" />
                                     ) : (
-                                        <i className="ri-user-line"></i> // Default icon when no image is uploaded
+                                        <i className="ri-user-line"></i>
                                     )}
                                 </div>
                                 <input
@@ -166,10 +207,11 @@ const Settings = () => {
                             </div>
                         </div>
                         <button type="submit" className="save-btn">
-                            Save Profile
+                            Update Profile
                         </button>
                     </form>
                 );
+
             case "security":
                 return (
                     <form className="settings-form">
@@ -202,43 +244,43 @@ const Settings = () => {
                         </button>
                     </form>
                 );
-            case "billing":
-                return (
-                    <div className="form-container">
-                        <div className="form-header">
-                            <h2>Billing Information</h2>
-                        </div>
-                        <form className="settings-form">
-                            <div className="form-group">
-                                <label htmlFor="card-name">Cardholder Name</label>
-                                <input
-                                    type="text"
-                                    id="card-name"
-                                    placeholder="Enter cardholder name"
-                                />
-                            </div>
-                            <div className="form-group">
-                                <label htmlFor="card-number">Card Number</label>
-                                <input
-                                    type="text"
-                                    id="card-number"
-                                    placeholder="Enter card number"
-                                />
-                            </div>
-                            <div className="form-group">
-                                <label htmlFor="expiry-date">Expiry Date</label>
-                                <input type="text" id="expiry-date" placeholder="MM/YY" />
-                            </div>
-                            <div className="form-group">
-                                <label htmlFor="cvv">CVV</label>
-                                <input type="password" id="cvv" placeholder="Enter CVV" />
-                            </div>
-                            <button type="submit" className="save-btn">
-                                Save Billing Info
-                            </button>
-                        </form>
-                    </div>
-                );
+            // case "billing":
+            //     return (
+            //         <div className="form-container">
+            //             <div className="form-header">
+            //                 <h2>Billing Information</h2>
+            //             </div>
+            //             <form className="settings-form">
+            //                 <div className="form-group">
+            //                     <label htmlFor="card-name">Cardholder Name</label>
+            //                     <input
+            //                         type="text"
+            //                         id="card-name"
+            //                         placeholder="Enter cardholder name"
+            //                     />
+            //                 </div>
+            //                 <div className="form-group">
+            //                     <label htmlFor="card-number">Card Number</label>
+            //                     <input
+            //                         type="text"
+            //                         id="card-number"
+            //                         placeholder="Enter card number"
+            //                     />
+            //                 </div>
+            //                 <div className="form-group">
+            //                     <label htmlFor="expiry-date">Expiry Date</label>
+            //                     <input type="text" id="expiry-date" placeholder="MM/YY" />
+            //                 </div>
+            //                 <div className="form-group">
+            //                     <label htmlFor="cvv">CVV</label>
+            //                     <input type="password" id="cvv" placeholder="Enter CVV" />
+            //                 </div>
+            //                 <button type="submit" className="save-btn">
+            //                     Save Billing Info
+            //                 </button>
+            //             </form>
+            //         </div>
+            //     );
             case "address":
                 return (
                     <form className="settings-form">
@@ -318,7 +360,7 @@ const Settings = () => {
                         className={`settings-tab ${activeTab === 'profile' ? 'active' : ''}`}
                         onClick={() => setActiveTab("profile")}
                     >
-                        Profile Info
+                        Edit Profile
                     </button>
                     <button
                         className={`settings-tab ${activeTab === 'security' ? 'active' : ''}`}
@@ -326,12 +368,12 @@ const Settings = () => {
                     >
                         Security
                     </button>
-                    <button
+                    {/* <button
                         className={`settings-tab ${activeTab === 'billing' ? 'active' : ''}`}
                         onClick={() => setActiveTab("billing")}
                     >
                         Billing
-                    </button>
+                    </button> */}
                     <button
                         className={`settings-tab ${activeTab === 'address' ? 'active' : ''}`}
                         onClick={() => setActiveTab("address")}

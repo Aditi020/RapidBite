@@ -1,13 +1,21 @@
 const registerUser = async (req, res) => {
-    const userService = require('../Services/UserService'); // Lazy loading
-    const { name, email, password } = req.body;
+    const userService = require('../services/UserService');
     try {
-        await userService.registerUser({ name, email, password });
-        res.status(201).json({ msg: "User registered successfully" });
-    } catch (err) {
-        res.status(400).json({ msg: err.message });
+        const newUser = await userService.registerUser(req.body);
+        res.status(201).json({ msg: "User registered successfully", userId: newUser._id });
+    } catch (error) {
+        if (error.name === 'ValidationError' || error.message.startsWith('Zod validation error')) {
+            const errorMessage = error.errors ? Object.values(error.errors).map(err => err.message).join(', ') : error.message;
+            return res.status(400).json({ msg: errorMessage });
+        } else if (error.message === 'User already exists') {
+            res.status(400).json({ msg: 'User already exists' });
+        } else {
+            console.error("Error during user registration:", error);
+            res.status(500).json({ msg: 'Internal server error' });
+        }
     }
 };
+
 
 const loginUser = async (req, res) => {
     const userService = require('../Services/UserService'); // Lazy loading

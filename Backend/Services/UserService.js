@@ -16,13 +16,21 @@ const { User } = require('../models/UserModel');
 const Order = require('../models/OrderModel');
 
 // Register user service
-const registerUser = async ({ name, email, password }) => {
-    const existingUser = await User.findOne({ email });
+const registerUser = async (userData) => {
+    const existingUser = await User.findOne({ email: userData.email });
     if (existingUser) throw new Error('User already exists');
 
-    const newUser = new User({ name, email, password });
-    return newUser.save();
+    //Create Address before creating User to get the Address ID
+    const newAddress = new Address({ ...userData, userId: null, isEligible: false }); //Set userId to null here. We will update later.
+    await newAddress.save();
+
+    //Add Address ID to userData before creating user
+    userData.addresses = [newAddress._id];
+    const newUser = new User(userData);
+    await newUser.save();
+    return newUser;
 };
+
 
 // Login user service
 const loginUser = async (email, password) => {

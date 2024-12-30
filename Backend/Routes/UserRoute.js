@@ -37,3 +37,4 @@ router.post("/profile/address", userMiddleware, createUserAddress); // Create ad
 router.put("/profile/address/:userId", userMiddleware, updateUserAddress); // Update address
 
 module.exports = router;
+ 

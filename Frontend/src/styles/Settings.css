@@ -60,6 +60,30 @@
     width: 100%;
 }
 
+
+.gender-select {
+    padding: 10px 15px;
+    border: 1px solid #555;
+    /* Darker border */
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: "Arial", sans-serif;
+    font-size: 16px;
+    background-color: #f9f9f9;
+    /* Light background */
+    appearance: none;
+    /* Hide default arrow */
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'><path fill='%23555' d='M7 11L4 8 7 5'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 16px;
+    -webkit-appearance: none;
+    /* Safari */
+    -moz-appearance: none;
+    /* Firefox */
+}
+
 .form-header h2 {
     font-size: 24px;
     color: #333;

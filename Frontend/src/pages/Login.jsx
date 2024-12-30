@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import React, { useRef, useState } from "react";
 import Banner from "../components/UI/Banner";
 import { Container, Row, Col } from "reactstrap";
 import { Link } from "react-router-dom";
@@ -14,11 +14,14 @@ const Login = () => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    // Implement form submission logic
+    // Implement form submission logic here (API call, etc.)
     if (activeForm === "login") {
-      console.log("Login form submitted");
+      console.log("Login form submitted:", {
+        email: loginEmailRef.current.value,
+        password: loginPasswordRef.current.value
+      });
     } else if (activeForm === "forgot") {
-      console.log("Forgot password form submitted");
+      console.log("Forgot password form submitted:", forgotEmailRef.current.value);
     }
   };
 
@@ -31,78 +34,35 @@ const Login = () => {
         <Container>
           <Row>
             <Col lg="6" md="6" sm="12" className="mx-auto">
-              <div className="form-container">
-                {/* Login Form */}
-                {activeForm === "login" && (
-                  <div className="form login-form">
-                    <h2 className="form__title">Login</h2>
-                    <form onSubmit={submitHandler}>
-                      <div className="form__group">
-                        <input
-                          type="email"
-                          placeholder="Email"
-                          required
-                          ref={loginEmailRef}
-                          className="form__input"
-                        />
-                      </div>
-                      <div className="form__group">
-                        <input
-                          type="password"
-                          placeholder="Password"
-                          required
-                          ref={loginPasswordRef}
-                          className="form__input"
-                        />
-                      </div>
-                      <button type="submit" className="addTOCart__btn">
-                        Login
-                      </button>
-                    </form>
-                    <p className="Redirect-Link" onClick={() => toggleForm("forgot")}>
-                      Forgot your password?{" "}
-                    </p>
-                    <p className="form__text">
-                      <Link to="/register" className="form__link pointer" >
-                        New User?{" "}
-                        Create an account
-                      </Link>
-                    </p>
-                  </div>
-                )}
-
-                {/* Forgot Password Form */}
-                {activeForm === "forgot" && (
-                  <div className="form forgot-form">
-                    <h2 className="form__title">Forgot Password</h2>
-                    <form onSubmit={submitHandler}>
-                      <div className="form__group">
-                        <input
-                          type="email"
-                          placeholder="Email"
-                          required
-                          ref={forgotEmailRef}
-                          className="form__input"
-                        />
-                      </div>
-                      <button type="submit" className="addTOCart__btn">
-                        Reset Password
-                      </button>
-                    </form>
-                    <p className="Redirect-Link" onClick={() => toggleForm("login")}>
-                      Remember your password?{" "}
-                      Log In
-                    </p>
-                  </div>
-                )}
+              <div className="card border-0 shadow rounded-3 my-5"> {/* Added Bootstrap card */}
+                <div className="card-body p-4 p-sm-5"> {/* Added card-body */}
+                  {/* Login Form */}
+                  {activeForm === "login" && (
+                    <div>
+                      <h2 className="card-title text-center mb-4">Login</h2>
+                      <form onSubmit={submitHandler}>
+                        <div className="mb-3">
+                          <label htmlFor="loginEmail" className="form-label">Email address</label>
+                          <input type="email" className="form-control" id="loginEmail" ref={loginEmailRef} required />
+                        </div>
+                        <div className="mb-3">
+                          <label htmlFor="loginPassword" className="form-label">Password</label>
+                          <input type="password" className="form-control" id="loginPassword" ref={loginPasswordRef} required />
+                        </div>
+                        <button type="submit" className="btn btn-primary w-100">Login</button>
+                      </form>
+                      <p className="text-center mt-3"><Link to="/forgotpsw" onClick={() => toggleForm("forgot")} className="text-decoration-none text-muted">Forgot your password?</Link></p>
+                      <p className="text-center mt-3"><Link to="/signin" className="text-decoration-none">New User? Create an account</Link></p>
+                    </div>
+                  )}
+                </div>
               </div>
             </Col>
-
             <Col lg="6" md="6" sm="12" className="m-auto text-center">
               <img
-                src={activeForm === "login" ? LoginImg : ForgotImg} 
-                alt={activeForm === "login" ? "Login-img" : "Forgot-img"} 
-                className={activeForm === "login" ? "LoginImg" : "ForgotImg"} 
+                src={activeForm === "login" ? LoginImg : ForgotImg}
+                alt={activeForm === "login" ? "Login-img" : "Forgot-img"}
+                className="img-fluid" style={{ maxWidth: '80%', marginTop: '-10%' }}
               />
             </Col>
           </Row>

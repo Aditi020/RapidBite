@@ -1,4 +1,4 @@
-require('dotenv').config();  // This initializes dotenv, no need to call it again
+// require('dotenv').config();  // This initializes dotenv, no need to call it again
 
 const express = require("express");
 const mongoose = require("mongoose");

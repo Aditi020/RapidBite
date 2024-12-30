@@ -11,6 +11,22 @@ const UserRegistrationSchema = zod.object({
     path: ["confirmPassword"],
 });
 
+// schema for user update
+const UserUpdateSchema = zod.object({
+    name: zod.string().optional(),
+    email: zod.string().email("Invalid email format").optional(),
+    password: zod.string().min(6, "Password must be at least 6 characters long").optional(),
+    dob: zod.date().optional(), //Date of birth
+    gender: zod.enum(['male', 'female', 'other']).optional(), //Gender
+    contact: zod.string().optional(), //Contact info
+    photo: zod.string().url().optional(), //Photo URL
+});
+
+module.exports = {
+    UserRegistrationSchema,
+    UserUpdateSchema,
+};
+
 // schema for user login
 const UserLoginSchema = zod.object({
     email: zod.string().email("Invalid email format"),
@@ -18,12 +34,12 @@ const UserLoginSchema = zod.object({
 });
 
 
-// schema for user update
-const UserUpdateSchema = zod.object({
-    name: zod.string().optional(),
-    email: zod.string().email("Invalid email format").optional(),
-    password: zod.string().min(6, "Password must be at least 6 characters long").optional(),
-});
+// // schema for user update
+// const UserUpdateSchema = zod.object({
+//     name: zod.string().optional(),
+//     email: zod.string().email("Invalid email format").optional(),
+//     password: zod.string().min(6, "Password must be at least 6 characters long").optional(),
+// });
 
 // schema for contact form
 const ContactFormSchema = zod.object({
